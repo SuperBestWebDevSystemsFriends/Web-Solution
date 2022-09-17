@@ -51,7 +51,7 @@ Your document should apply good academic integrity. All product images that are 
 
 Website Implementation and Report will be worth 30% of the total topic mark.
 
-##Learning Outcomes
+## Learning Outcomes
 
 The Collaborative Activity - Web Solution assignment will provide students with the ability to demonstrate the following learning outcomes for the topic:
 
