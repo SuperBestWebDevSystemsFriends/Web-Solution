@@ -14,6 +14,19 @@
         <div class="content">
             <h1>SENIOR</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
+            <form>
+                <input type="text" placeholder="Search..">
+                <button type="submit">Search</button>
+            </form>
+            <div class="fproducts">
+                <h2>Featured Products</h2>
+                <div class="product">
+                    <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
+                    <h3>Dog Bed</h3>
+                    <p>$50</p>
+                    <p>Some text about the dog bed.</p>
+                </div>
+            </div>
         </div>
 
         <div class="tab qaction" id = "quickaction">
