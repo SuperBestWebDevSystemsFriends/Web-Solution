@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="whitespace"></div>
         <div class="tab qaction" id="quickaction">
             <button class="tablinks" href="">Quick Action 1</button>
             <button class="tablinks" href="">Quick Action 2</button>
