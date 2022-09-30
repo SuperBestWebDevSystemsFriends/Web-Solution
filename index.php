@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="tab qaction" id = "quickaction">
+        <div class="tab qaction" id="quickaction">
             <button class="tablinks" href="">Quick Action 1</button>
             <button class="tablinks" href="">Quick Action 2</button>
             <button class="tablinks" href="">Quick Action 3</button>
