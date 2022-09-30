@@ -8,6 +8,12 @@
             <button class="tablinks" href="">Tab 1</button>
             <button class="tablinks" href="">Tab 2</button>
             <button class="tablinks" href="">Tab 3</button>
+            <form action = "cart.php">
+                <input type="submit" value = "Selling Carts in Seaford"/>
+            </form>
+            <form action = "index.php">
+                <input type="submit" value = "Home boy"/>
+            </form>
         </div>
 
         <div class="content">

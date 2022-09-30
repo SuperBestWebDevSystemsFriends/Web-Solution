@@ -9,6 +9,12 @@
             <button class="tablinks" href="">Browse</button>
             <button class="tablinks" href="Marketplace.php">Selling</button>
             <button class="tablinks" href="cart.php">Cart</button>
+            <form action = "Marketplace.php">
+                <input type="submit" value = "Selling Bags in Seaford"/>
+            </form>
+            <form action = "cart.php">
+                <input type="submit" value = "Carty boy"/>
+            </form>
         </div>
 
         <div class="content">
