@@ -16,11 +16,11 @@
         </div>
 
         <div class="tab qaction" id = "quickaction">
-            <button class="tablinks" href="">Tab 1</button>
-            <button class="tablinks" href="">Tab 2</button>
-            <button class="tablinks" href="">Tab 3</button>
-            <button class="tablinks" href="">Tab 4</button>
-            <button class="tablinks" href="">Tab 5</button>
+            <button class="tablinks" href="">Quick Action 1</button>
+            <button class="tablinks" href="">Quick Action 2</button>
+            <button class="tablinks" href="">Quick Action 3</button>
+            <button class="tablinks" href="">Quick Action 4</button>
+            <button class="tablinks" href="">Quick Action 5</button>
         </div>
         <?php
             // echo '<img src="data:image/jpeg;base64,'.'
