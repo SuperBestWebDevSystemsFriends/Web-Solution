@@ -11,7 +11,7 @@
         </div>
 
         <div class="content">
-            <h1>SENIOR</h1>
+            <h1>Cart</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <form>
                 <input type="text" placeholder="Search..">
