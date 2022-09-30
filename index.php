@@ -4,10 +4,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="tab">
+        <div class="tab" id="header">
             <button class="tablinks" href="">Tab 1</button>
             <button class="tablinks" href="">Tab 2</button>
             <button class="tablinks" href="">Tab 3</button>
+        </div>
+        <div class="qaction" id = "quickaction">
+            <button class="tablinks" href="">Tab 1</button>
+            <button class="tablinks" href="">Tab 2</button>
+            <button class="tablinks" href="">Tab 3</button>
+            <button class="tablinks" href="">Tab 4</button>
+            <button class="tablinks" href="">Tab 5</button>
         </div>
         <p>testing</p>
         <?php
