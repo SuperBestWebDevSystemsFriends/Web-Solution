@@ -5,9 +5,10 @@
     </head>
     <body>
         <div class="tab" id="header">
-            <button class="tablinks" href="">Tab 1</button>
-            <button class="tablinks" href="">Tab 2</button>
-            <button class="tablinks" href="">Tab 3</button>
+            <button class="tablinks" href="index.php">Home</button>
+            <button class="tablinks" href="">Browse</button>
+            <button class="tablinks" href="Marketplace.php">Selling</button>
+            <button class="tablinks" href="Cart.php">Cart</button>
         </div>
 
         <div class="content">
