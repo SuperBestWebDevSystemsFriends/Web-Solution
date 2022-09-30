@@ -5,10 +5,9 @@
     </head>
     <body>
         <div class="tab" id="header">
-            <button class="tablinks" href="index.php">Home</button>
-            <button class="tablinks" href="">Browse</button>
-            <button class="tablinks" href="Marketplace.php">Selling</button>
-            <button class="tablinks" href="Cart.php">Cart</button>
+            <button class="tablinks" href="">Tab 1</button>
+            <button class="tablinks" href="">Tab 2</button>
+            <button class="tablinks" href="">Tab 3</button>
         </div>
 
         <div class="content">
@@ -29,7 +28,7 @@
             </div>
         </div>
 
-        <div class="tab qaction" id="quickaction">
+        <div class="tab qaction" id = "quickaction">
             <button class="tablinks" href="">Quick Action 1</button>
             <button class="tablinks" href="">Quick Action 2</button>
             <button class="tablinks" href="">Quick Action 3</button>
