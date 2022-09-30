@@ -8,7 +8,7 @@
             <button class="tablinks" href="index.php">Home</button>
             <button class="tablinks" href="">Browse</button>
             <button class="tablinks" href="Marketplace.php">Selling</button>
-            <button class="tablinks" href="Cart.php">Cart</button>
+            <button class="tablinks" href="cart.php">Cart</button>
         </div>
 
         <div class="content">
