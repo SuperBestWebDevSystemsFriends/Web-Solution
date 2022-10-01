@@ -22,7 +22,17 @@ h1 {
     justify-content: space-between;
 }
 
-/* Style the buttons that are used to open the tab content */
+.tabButton {
+    background-color: inherit;
+    text-align: center;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
 .tab button {
     background-color: inherit;
     float: left;
@@ -43,16 +53,6 @@ h1 {
     background-color: #ccc;
 }
 
-.tabButton {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-
 /* Change background color of buttons on hover */
 .tabButton:hover {
     background-color: #ddd;
@@ -60,6 +60,7 @@ h1 {
 
 /* Create an active/current tablink class */
 .tabButton.active {
+    border: 1px solid #ccc;
     background-color: #ccc;
 }
 

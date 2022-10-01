@@ -5,21 +5,18 @@
     </head>
     <body>
         <div class="tab" id="header">
-            <div class="tabSpacer">
+        <div class="tabSpacer">
                 <form action = "index.php">
                     <input class="tabButton" type="submit" value = "Home"/>
                 </form>
                 <form action = "selling.php">
-                    <input class="tabButton" type="submit" value = "Selling Bags in Seaford"/>
+                    <input class="tabButton" type="submit" value = "Sell"/>
+                </form>
+                <form action = "browse.php">
+                    <input class="tabButton" type="submit" value = "Browse"/>
                 </form>
                 <form action = "cart.php">
-                    <input class="tabButton" type="submit" value = "Carty boy"/>
-                </form>
-                <form action = "checkout.php">
-                    <input class="tabButton" type="submit" value = "Checkout"/>
-                </form>
-                <form action = "product.php">
-                    <input class="tabButton" type="submit" value = "Product"/>
+                    <input class="tabButton" type="submit" value = "Cart"/>
                 </form>
             </div>
         </div>

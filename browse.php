@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class="tab" id="header">
-        <div class="tabSpacer">
+            <div class="tabSpacer">
                 <form action = "index.php">
                     <input class="tabButton" type="submit" value = "Home"/>
                 </form>
@@ -13,17 +13,16 @@
                     <input class="tabButton" type="submit" value = "Sell"/>
                 </form>
                 <form action = "browse.php">
-                    <input class="tabButton" type="submit" value = "Browse"/>
+                    <input class="tabButton active" type="submit" value = "Browse"/>
                 </form>
                 <form action = "cart.php">
-                    <input class="tabButton active" type="submit" value = "Cart"/>
+                    <input class="tabButton" type="submit" value = "Cart"/>
                 </form>
             </div>
         </div>
 
-
         <div class="content">
-            <h1>User Cart</h1>
+            <h1>Browse</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <form>
                 <input type="text" placeholder="Search..">
@@ -39,7 +38,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="whitespace"></div>
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer" id="header">
                 <button class="tablinks" href="">Quick Action 1</button>
