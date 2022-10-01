@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/0c7165f7a1.js" crossorigin="anonymous"></script>
     </head>
     <body class="">
         <div class="tab" id="header">
@@ -26,7 +27,7 @@
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <form>
                 <input type="text" placeholder="Search..">
-                <button type="submit">Search</button>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <div class="fproducts">
                 <h2>Featured Products</h2>

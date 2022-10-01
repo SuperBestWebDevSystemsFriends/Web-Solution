@@ -19,6 +19,18 @@
 
 }
 
+input[type="text"]{
+	border: 1px;
+	border-style: solid;
+	border-color: #dddddd;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 50%;
+    border-radius: 25px;
+	box-sizing: border-box;
+}
+
 body.dark{
     --clr-light: #2e2e2e;
     --clr-dark: #ffffff;

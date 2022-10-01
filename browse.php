@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/0c7165f7a1.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="tab" id="header">
@@ -30,6 +31,9 @@
             </form>
             <div class="fproducts">
                 <h2>Featured Products</h2>
+                <form action = "product.php">
+                        <input class="tabButton" type="submit" value = "Product Dummy"/>
+                </form>
                 <div class="product">
                     <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
                     <h3>Dog Bed</h3>
