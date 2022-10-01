@@ -5,22 +5,17 @@
     </head>
     <body>
         <div class="tab" id="header">
-            <button class="tablinks" href="index.php">Home</button>
-            <button class="tablinks" href="Checkout.php">Checkout</button>
-            <button class="tablinks" href="Selling.php">Selling</button>
-            <button class="tablinks" href="cart.php">Cart</button>
-            <button class="tablinks" href="Product.php">Product</button>
             <form action = "Selling.php">
                 <input type="submit" value = "Selling Bags in Seaford"/>
             </form>
             <form action = "cart.php">
-                <input type="submit" value = "Carty boy"/>
+                <input class="tabButton" type="submit" value = "Carty boy"/>
             </form>
             <form action = "Checkout.php">
-                <input type="submit" value = "Checkout"/>
+                <input class="tabButton" type="submit" value = "Checkout"/>
             </form>
             <form action = "Product.php">
-                <input type="submit" value = "Product"/>
+                <input class="tabButton" type="submit" value = "Product"/>
             </form>
         </div>
 
