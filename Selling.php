@@ -24,21 +24,53 @@
 
 
         <div class="content">
-            <h1>Selling</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <form>
-                <input type="text" placeholder="Search..">
-                <button type="submit">Search</button>
+            <h1>Sell Item</h1>
+            <h2>To sell an item the following must be fufilled:</h2>
+            <form action="" method="POST">
+                <ol>
+                    <li> Item Name </li>
+                    <input type="text" name="itemName" value="e.g Swiggity Swag">
+
+
+                    <li> Item Price </li>
+
+                    <li> Item Description </li>
+                    <input type="text" name="desc" size=100>
+
+                    <li> Item Photo </li>
+
+                </ol>
+
+                <h2>Optional Extras: (will help sell your item)</h2>
+                <ul> 
+                    
+                    <li> Additional Photos </li>
+
+                    <li> Item Condition </li>
+                    <input type="Radio" name="Condition" value="New"> New
+                    <br>
+                    <input type="Radio" name="Condition" value="Used"> Used
+                    <br>
+                    <input type="Radio" name="Condition" value="Love Needed"> Love Needed
+                    <br>
+
+                    <li> Additional Details </li> 
+
+
+                    <li> Item Category </li>
+                    <input type="checkbox" name="Camping" value=Camping> Camping
+                    <br>
+                    <input type="checkbox" name="Caravaning" value=Caravaning> Caravaning
+                    <br>
+                    <input type="checkbox" name="Hiking" value=Hiking> Hiking
+
+
+                </ul>
+
+
             </form>
-            <div class="fproducts">
-                <h2>Featured Products</h2>
-                <div class="product">
-                    <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
-                    <h3>Dog Bed</h3>
-                    <p>$50</p>
-                    <p>Some text about the dog bed.</p>
-                </div>
-            </div>
+        
+
         </div>
 
         <div class="tab qaction" id="quickaction">
