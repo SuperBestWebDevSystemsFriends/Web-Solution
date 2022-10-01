@@ -6,7 +6,7 @@
     <body>
         <div class="tab" id="header">
             <form action = "Selling.php">
-                <input type="submit" value = "Selling Bags in Seaford"/>
+                <input class="tabButton" type="submit" value = "Selling Bags in Seaford"/>
             </form>
             <form action = "cart.php">
                 <input class="tabButton" type="submit" value = "Carty boy"/>
