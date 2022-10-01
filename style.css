@@ -1,14 +1,44 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+:root{
+
+    --ff-primary: Arial, Helvetica, sans-serif;;
+    --ff-secondary: ocr-b-std, monospace;
+
+    --fw-thin: 100;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+
+    --clr-light: #ffffff;
+    --clr-dark: #000000;
+    --clr-accent: #0071ce;
+
+    --fs-h1: 3.7rem;
+    --fs-h2: 1.5rem;
+    --fs-h3: 1.25rem;
+    --fs-p: 1rem;
+
 }
+
+body.dark{
+    --clr-light: #2e2e2e;
+    --clr-dark: #ffffff;
+    --clr-accent: #0071ce;
+}
+
+body {
+    font-family: var(--ff-primary);
+    text-align: center;
+    background-color: var(--clr-light);
+    color: var(--clr-dark)
+}
+
 h1 {
-    
+    font-size: var(--fs-h1);
 }
 
 /* Style the tab */
 .tab {
-    width: 100%; /* Your element needs a fixed width */
+    width: 99vw; /* Your element needs a fixed width */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -17,21 +47,11 @@ h1 {
 }
 
 .tabSpacer {
-    width: 50%;
+    width: 75%;
     display: flex;
     justify-content: space-between;
 }
 
-.tabButton {
-    background-color: inherit;
-    text-align: center;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
 
 .tab button {
     background-color: inherit;
@@ -53,6 +73,17 @@ h1 {
     background-color: #ccc;
 }
 
+.tabButton {
+    background-color: inherit;
+    width: 10vw;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 16px 16px;
+    transition: 0.3s;
+}
+
 /* Change background color of buttons on hover */
 .tabButton:hover {
     background-color: #ddd;
@@ -60,7 +91,8 @@ h1 {
 
 /* Create an active/current tablink class */
 .tabButton.active {
-    border: 1px solid #ccc;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
     background-color: #ccc;
 }
 

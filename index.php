@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body class="">
         <div class="tab" id="header">
             <div class="tabSpacer">
                 <form action = "index.php">

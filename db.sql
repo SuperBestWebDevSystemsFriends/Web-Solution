@@ -12,7 +12,9 @@ CREATE TABLE Item(
     price decimal(10,2) NOT NULL,
     description varchar(1000) NOT NULL,
     image longblob NOT NULL,
-    seller varchar(100)
+    seller int
+    FOREIGN KEY (seller) REFERENCES User_(id)
+    ON DELETE NO ACTION ON UPDATE CASCADE,
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE User_(
