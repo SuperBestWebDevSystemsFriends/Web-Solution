@@ -9,13 +9,17 @@ h1 {
 /* Style the tab */
 .tab {
     width: 100%; /* Your element needs a fixed width */
-    padding-left: 25%;
-    padding-right: 25%;
-    display: flex;
-    justify-content: space-between;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+}
+
+.tabSpacer {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Style the buttons that are used to open the tab content */

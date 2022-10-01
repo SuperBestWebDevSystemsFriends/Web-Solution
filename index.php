@@ -4,22 +4,24 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <div class="tab" id="header">
-            <form action = "index.php">
-                <input class="tabButton" type="submit" value = "Home"/>
-            </form>
-            <form action = "selling.php">
-                <input class="tabButton" type="submit" value = "Selling Bags in Seaford"/>
-            </form>
-            <form action = "cart.php">
-                <input class="tabButton" type="submit" value = "Carty boy"/>
-            </form>
-            <form action = "checkout.php">
-                <input class="tabButton" type="submit" value = "Checkout"/>
-            </form>
-            <form action = "product.php">
-                <input class="tabButton" type="submit" value = "Product"/>
-            </form>
+        <div class="tab" id="header">
+            <div class="tabSpacer">
+                <form action = "index.php">
+                    <input class="tabButton" type="submit" value = "Home"/>
+                </form>
+                <form action = "selling.php">
+                    <input class="tabButton" type="submit" value = "Selling Bags in Seaford"/>
+                </form>
+                <form action = "cart.php">
+                    <input class="tabButton" type="submit" value = "Carty boy"/>
+                </form>
+                <form action = "checkout.php">
+                    <input class="tabButton" type="submit" value = "Checkout"/>
+                </form>
+                <form action = "product.php">
+                    <input class="tabButton" type="submit" value = "Product"/>
+                </form>
+            </div>
         </div>
 
         <div class="content">
@@ -41,11 +43,12 @@
         </div>
         <div class="whitespace"></div>
         <div class="tab qaction" id="quickaction">
-            <button class="tablinks" href="">Quick Action 1</button>
-            <button class="tablinks" href="">Quick Action 2</button>
-            <button class="tablinks" href="">Quick Action 3</button>
-            <button class="tablinks" href="">Quick Action 4</button>
-            <button class="tablinks" href="">Quick Action 5</button>
+            <div class="tabSpacer" id="header">
+                <button class="tablinks" href="">Quick Action 1</button>
+                <button class="tablinks" href="">Quick Action 2</button>
+                <button class="tablinks" href="">Quick Action 3</button>
+                <button class="tablinks" href="">Quick Action 4</button>
+            </div>
         </div>
         <?php
             // echo '<img src="data:image/jpeg;base64,'.'
