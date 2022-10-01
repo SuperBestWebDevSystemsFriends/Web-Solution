@@ -24,8 +24,13 @@
 
 
         <div class="content">
-            <h1>Checkout Page</h1>
-            <h2>Full Name</h2>
+            <h1>Checkout</h1>
+            <input type="text" placeholder="Card Number" require = true;>
+            <input type="text" placeholder="CVV" require = true;>
+            <input type="text" placeholder="Expiration Date" require = true;>
+            <input type="text" placeholder="Cardholder Name" require = true;>
+            <input type="submit" value="Place Order for ">
+            <!-- <h2>Full Name</h2>
             <h2>Email</h2>
             <h2>Address</h2>
             <h2>City</h2>
@@ -36,9 +41,7 @@
             <h2>Credit Card Number</h2>
             <h2>Expiry Month</h2>
             <h2>Expiry Year</h2>
-            <h2>CVV</h2>
-
-            
+            <h2>CVV</h2> -->
         </div>
 
         <div class="tab qaction" id="quickaction">
