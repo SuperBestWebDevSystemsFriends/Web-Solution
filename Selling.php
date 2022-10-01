@@ -33,6 +33,7 @@
 
 
                     <li> Item Price </li>
+                    <input type="number" min="1" step="any">
 
                     <li> Item Description </li>
                     <input type="text" name="desc" size=100>
@@ -45,6 +46,7 @@
                 <ul> 
                     
                     <li> Additional Photos </li>
+                    <br>
 
                     <li> Item Condition </li>
                     <input type="Radio" name="Condition" value="New"> New
@@ -52,9 +54,10 @@
                     <input type="Radio" name="Condition" value="Used"> Used
                     <br>
                     <input type="Radio" name="Condition" value="Love Needed"> Love Needed
-                    <br>
 
+                    <br><br>
                     <li> Additional Details </li> 
+                    <input type="text" name="additional details" size=100>
 
 
                     <li> Item Category </li>
@@ -67,6 +70,7 @@
 
                 </ul>
 
+                <input type="submit" value="Add to Marketplace">
 
             </form>
         
