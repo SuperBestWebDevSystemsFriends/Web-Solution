@@ -4,17 +4,20 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="tab" id="header">
-            <form action = "Selling.php">
+    <div class="tab" id="header">
+            <form action = "index.php">
+                <input class="tabButton" type="submit" value = "Home"/>
+            </form>
+            <form action = "selling.php">
                 <input class="tabButton" type="submit" value = "Selling Bags in Seaford"/>
             </form>
             <form action = "cart.php">
                 <input class="tabButton" type="submit" value = "Carty boy"/>
             </form>
-            <form action = "Checkout.php">
+            <form action = "checkout.php">
                 <input class="tabButton" type="submit" value = "Checkout"/>
             </form>
-            <form action = "Product.php">
+            <form action = "product.php">
                 <input class="tabButton" type="submit" value = "Product"/>
             </form>
         </div>

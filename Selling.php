@@ -5,14 +5,20 @@
     </head>
     <body>
         <div class="tab" id="header">
-            <button class="tablinks" href="">Tab 1</button>
-            <button class="tablinks" href="">Tab 2</button>
-            <button class="tablinks" href="">Tab 3</button>
-            <form action = "cart.php">
-                <input type="submit" value = "Selling Carts in Seaford"/>
-            </form>
             <form action = "index.php">
-                <input type="submit" value = "Home boy"/>
+                <input class="tabButton" type="submit" value = "Home"/>
+            </form>
+            <form action = "Selling.php">
+                <input class="tabButton" type="submit" value = "Selling Bags in Seaford"/>
+            </form>
+            <form action = "cart.php">
+                <input class="tabButton" type="submit" value = "Carty boy"/>
+            </form>
+            <form action = "Checkout.php">
+                <input class="tabButton" type="submit" value = "Checkout"/>
+            </form>
+            <form action = "Product.php">
+                <input class="tabButton" type="submit" value = "Product"/>
             </form>
         </div>
 
