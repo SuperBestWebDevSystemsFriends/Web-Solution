@@ -73,9 +73,12 @@
                 <input type="submit" value="Add to Marketplace">
 
             </form>
+
+    
         
 
         </div>
+        <div class="whitespace"></div>
 
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer" id="header">
