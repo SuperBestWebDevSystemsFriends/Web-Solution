@@ -73,16 +73,19 @@
                 <input type="submit" value="Add to Marketplace">
 
             </form>
+
+    
         
 
         </div>
+        <div class="whitespace"></div>
 
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer" id="header">
-                <button class="tablinks" href="">Quick Action 1</button>
-                <button class="tablinks" href="">Quick Action 2</button>
-                <button class="tablinks" href="">Quick Action 3</button>
-                <button class="tablinks" href="">Quick Action 4</button>
+                <button class="tablinks" href="">Help</button>
+                <button class="tablinks" href="">Font Size -</button>
+                <button class="tablinks" href="">Font Size +</button>
+                <button class="tablinks" href="">Light/Dark Mode</button>
             </div>
         </div>
         <?php
