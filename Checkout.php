@@ -25,11 +25,12 @@
 
         <div class="content">
             <h1>Checkout</h1>
-            <input type="text" placeholder="Card Number" require = true;>
-            <input type="text" placeholder="CVV" require = true;>
-            <input type="text" placeholder="Expiration Date" require = true;>
-            <input type="text" placeholder="Cardholder Name" require = true;>
-            <input type="submit" value="Place Order for ">
+            
+            <input type="text" id="cardNumber" placeholder="Card Number" require = true;>
+            <input type="text" id="cvv" placeholder="CVV" require = true;>
+            <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
+            <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
+            <input type="submit" id="placeOrder" value="Place Order for ">
             <!-- <h2>Full Name</h2>
             <h2>Email</h2>
             <h2>Address</h2>
