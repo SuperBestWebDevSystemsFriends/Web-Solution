@@ -25,20 +25,20 @@
 
         <div class="content">
             <h1>Checkout Page</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <form>
-                <input type="text" placeholder="Search..">
-                <button type="submit">Search</button>
-            </form>
-            <div class="fproducts">
-                <h2>Featured Products</h2>
-                <div class="product">
-                    <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
-                    <h3>Dog Bed</h3>
-                    <p>$50</p>
-                    <p>Some text about the dog bed.</p>
-                </div>
-            </div>
+            <h2>Full Name</h2>
+            <h2>Email</h2>
+            <h2>Address</h2>
+            <h2>City</h2>
+            <h2>State</h2>
+            <h2>Post Code</h2>
+            <h2>Payment</h2>
+            <h2>Name on Card</h2>
+            <h2>Credit Card Number</h2>
+            <h2>Expiry Month</h2>
+            <h2>Expiry Year</h2>
+            <h2>CVV</h2>
+
+            
         </div>
 
         <div class="tab qaction" id="quickaction">

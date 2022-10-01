@@ -25,7 +25,7 @@
 
         <div class="content">
             <h1>Sell Item</h1>
-            <h2>To sell an item the following must be fufilled:</h2>
+            <h2>Item Information</h2>
             <form action="" method="POST">
                 <ol>
                     <li> Item Name </li>
@@ -42,7 +42,7 @@
 
                 </ol>
 
-                <h2>Optional Extras: (will help sell your item)</h2>
+                <h2>Additional Information</h2>
                 <ul> 
                     
                     <li> Additional Photos </li>
