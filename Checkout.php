@@ -8,6 +8,9 @@
             <button class="tablinks" href="">Tab 1</button>
             <button class="tablinks" href="">Tab 2</button>
             <button class="tablinks" href="">Tab 3</button>
+            <form action = "index.php">
+                <input type="submit" value = "Home"/>
+            </form>
         </div>
 
         <div class="content">

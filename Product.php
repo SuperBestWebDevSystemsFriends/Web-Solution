@@ -8,10 +8,13 @@
             <button class="tablinks" href="">Tab 1</button>
             <button class="tablinks" href="">Tab 2</button>
             <button class="tablinks" href="">Tab 3</button>
+            <form action = "index.php">
+                <input type="submit" value = "Home"/>
+            </form>
         </div>
 
         <div class="content">
-            <h1>SENIOR</h1>
+            <h1>Product</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <form>
                 <input type="text" placeholder="Search..">
