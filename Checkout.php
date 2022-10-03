@@ -29,15 +29,15 @@
             <div class = "progress">
                 <span class = "progressContainer">
                     <p>Cart</p>
-                    <div class= "progressBar" id = "progressBar1"></div>
+                    <div class= "progressBar complete" id = "progressBar1"></div>
                 </span>
                 <span class = "progressContainer">
                     <p>Shipping Details</p>
-                    <div class= "progressBar" id = "progressBar2"></div>
+                    <div class= "progressBar complete" id = "progressBar2"></div>
                 </span>
                 <span class = "progressContainer">
                     <p>Payment</p>
-                    <div class= "progressBar" id = "progressBar3"></div>
+                    <div class= "progressBar active" id = "progressBar3"></div>
                 </span>
                 <span class = "progressContainer">
                     <p>Confirmation</p>

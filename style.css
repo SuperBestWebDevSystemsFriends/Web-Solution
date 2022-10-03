@@ -10,6 +10,7 @@
     --fw-bold: 700;
 
     --clr-light: #ffffff;
+    --clr-grey: #cccccc;
     --clr-dark: #000000;
     --clr-accent: #0071ce;
     --clr-accent-dark: #004b87;
@@ -180,7 +181,19 @@ img {
 .progressBar{
     height: 10px;
     width: 150px;
-    background-color: teal;
+    background-color: var(--clr-grey);
+}
+
+.progressBar.complete{
+    height: 10px;
+    width: 150px;
+    background-color: var(--clr-accent);
+}
+
+.progressBar.active{
+    height: 10px;
+    width: 150px;
+    background-color: var(--clr-accent-light);
 }
 
 .progressContainer{

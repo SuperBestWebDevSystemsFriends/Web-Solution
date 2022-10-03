@@ -24,8 +24,10 @@
 
 
         <div class="content">
-            <h1>Product</h1>
+            <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
+            
+
             
         </div>
 
