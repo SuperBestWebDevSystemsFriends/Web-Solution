@@ -27,10 +27,10 @@
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <?php
-                //if(mysqli_connect_errno()) {
-                //    echo "Could not connect to database, please check connection details"
-                //    exit();
-                //}
+                if(mysqli_connect_errno()) {
+                    echo "Could not connect to database, please check connection details"
+                    exit();
+                }
 
                 $search = $_POST['searchcategory']."*";
 
