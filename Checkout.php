@@ -36,7 +36,7 @@
 
             $sql = "SELECT SUM(price*quantity) FROM Cart c, Item i WHERE c.item_id = i.item_id GROUP BY user_id";
             if($result = mysqli_query($conn, $sql)){
-                echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". mysqli_fetch_assoc($result)."\">";
+                echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". $result ."\">";
             }
             ?>
             <!-- <h2>Full Name</h2>
