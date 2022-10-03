@@ -34,9 +34,15 @@
             <?php 
             require_once "dbconn.php";
 
-            $sql = "SELECT SUM(price*quantity) FROM Cart c, Item i WHERE c.item_id = i.item_id GROUP BY user_id";
+            $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
             if($result = mysqli_query($conn, $sql)){
-                echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". $result ."\">";
+                if(mysqli_num_rows($result) == 0){
+                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for Null\">";
+                }
+                else{
+
+ring()t                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". String($row[0]) ."\">";
+                }
             }
             ?>
             <!-- <h2>Full Name</h2>

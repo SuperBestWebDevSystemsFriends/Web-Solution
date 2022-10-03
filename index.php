@@ -32,17 +32,17 @@
             <div class="featuredProducts">
                 <h2>Featured Products</h2>
                 <?php
-                    echo "<div class="featuredContainer">
-                    <div class="featuredImage">
-                        <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
-                    </div>
-                    <div class="featuredDesc">
-                        <h3>Dog Bed</h3>
-                        <p>$50</p>
-                        <p>Some text about the dog bed.</p>
-                        <button href="" class="button2">View</button>
-                    </div>
-                </div>"
+                    echo '<div class="featuredContainer">
+                            <div class="featuredImage">
+                                <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
+                            </div>
+                            <div class="featuredDesc">
+                                <h3>Dog Bed</h3>
+                                <p>$50</p>
+                                <p>Some text about the dog bed.</p>
+                                <button href="" class="button2">View</button>
+                            </div>
+                        </div>';
                 ?>
             </div>
         </div>
