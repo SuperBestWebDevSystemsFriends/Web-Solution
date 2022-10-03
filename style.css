@@ -10,7 +10,7 @@
     --fw-bold: 700;
 
     --clr-light: #ffffff;
-    --clr-grey: #cccccc;
+    --clr-grey: #eeeeee;
     --clr-dark: #000000;
     --clr-accent: #0071ce;
     --clr-accent-dark: #004b87;
@@ -39,34 +39,43 @@ body.dark {
     --clr-light: #2e2e2e;
     --clr-dark: #ffffff;
     --clr-accent: #0071ce;
+    --clr-grey: #666666;
+    transition: 0.25s ease-in;
 }
 
 body {
     font-family: var(--ff-primary);
     text-align: center;
     background-color: var(--clr-light);
-    color: var(--clr-dark)
+    color: var(--clr-dark);
+    transition: 0.25s ease-in;
 }
 
 h1 {
     font-size: var(--fs-h1);
 }
 
-/* Style the tab */
 .tab {
-    width: 98vw;
-    /* Your element needs a fixed width */
+    width: 75%;
     overflow: hidden;
     display: flex;
+    margin: auto;
     justify-content: center;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
 }
 
 .tabSpacer {
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.tabSpacer.container{
+    margin: auto;
+    flex-grow: 1;
+}
+
+.tabContainer{
+    flex-grow: 1;
 }
 
 
@@ -78,42 +87,61 @@ h1 {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s ease-in-out;
+    background-color: var(--clr-grey);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-p);
+    color: var(--clr-dark);
+    width: 100%;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: var(--clr-accent-light);
+    color: white;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
-    background-color: #ccc;
+    background-color: var(--clr-accent);
+    color: white;
+}
+
+.tab button:active{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    transition: 0.1s;
 }
 
 .tabButton {
     background-color: inherit;
-    width: 10vw;
+    width: 100%;
     text-align: center;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 16px 16px;
     transition: 0.3s ease-in-out;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-p);
+    background-color: var(--clr-grey);
+    color: var(--clr-dark);
+    border-radius: 30px 30px 0px 0px;
 }
 
-/* Change background color of buttons on hover */
 .tabButton:hover {
-    background-color: #ddd;
+    background-color: var(--clr-accent-light);
+    color: white;
 }
 
-/* Create an active/current tablink class */
 .tabButton.active {
-    border-left: 1px solid #bbb;
-    border-right: 1px solid #bbb;
-    background-color: #ccc;
+    background-color: var(--clr-accent);
+    color: white;
 }
 
-/* Style the tab content */
+.tabButton:active{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    transition: 0.1s;
+}
+
 .tabcontent {
     display: none;
     padding: 6px 12px;
@@ -124,7 +152,9 @@ h1 {
 #quickaction {
     position: fixed;
     top: 90%;
-    width: 98.5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 50px;
 }
 
 .whitespace {
@@ -174,8 +204,14 @@ img {
 }
 
 .button2:hover{
-    background-color: var(--clr-accent-dark);
+    background-color: var(--clr-accent-light);
     transition: 0.3s ease-in-out;
+}
+
+.button2:active{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    transition: 0.1s;
 }
 
 .progressBar{

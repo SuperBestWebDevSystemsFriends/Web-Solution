@@ -6,17 +6,17 @@
     </head>
     <body>
         <div class="tab" id="header">
-        <div class="tabSpacer">
-                <form action = "index.php">
+            <div class="tabSpacer">
+                <form class="tabContainer" action = "index.php">
                     <input class="tabButton" type="submit" value = "Home"/>
                 </form>
-                <form action = "selling.php">
+                <form class="tabContainer" action = "selling.php">
                     <input class="tabButton active" type="submit" value = "Sell"/>
                 </form>
-                <form action = "browse.php">
+                <form class="tabContainer" action = "browse.php">
                     <input class="tabButton" type="submit" value = "Browse"/>
                 </form>
-                <form action = "cart.php">
+                <form class="tabContainer" action = "cart.php">
                     <input class="tabButton" type="submit" value = "Cart"/>
                 </form>
             </div>
@@ -81,11 +81,11 @@
         <div class="whitespace"></div>
 
         <div class="tab qaction" id="quickaction">
-            <div class="tabSpacer" id="header">
+            <div class="tabSpacer container">
                 <button class="tablinks" href="">Help</button>
                 <button class="tablinks" href="">Font Size -</button>
                 <button class="tablinks" href="">Font Size +</button>
-                <button class="tablinks" href="">Light/Dark Mode</button>
+                <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
             </div>
         </div>
         <?php
