@@ -194,6 +194,19 @@ img {
     height: 10px;
     width: 150px;
     background-color: var(--clr-accent-light);
+    animation: activeAnim 1s ease-in-out 0s infinite;
+}
+
+@keyframes activeAnim {
+    0% {
+        background-color: var(--clr-accent-light);
+    }
+    50% {
+        background-color: var(--clr-accent);
+    }
+    100% {
+        background-color: var(--clr-accent-light);
+    }
 }
 
 .progressContainer{
