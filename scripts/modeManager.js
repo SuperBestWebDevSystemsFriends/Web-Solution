@@ -1,6 +1,7 @@
 function toggleMode(){
     if(state=="light"){
         state="dark";
+        button.innerText = "Light Mode";
         r.style.setProperty('--clr-light', "dimgrey");
         r.style.setProperty('--clr-grey', 'grey');
         r.style.setProperty('--clr-dark', 'white');
@@ -9,6 +10,7 @@ function toggleMode(){
     }
     else if(state=="dark"){
         state="light";
+        button.innerText = "Dark Mode";
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#cccccc');
         r.style.setProperty('--clr-dark', '#000000');
@@ -18,3 +20,5 @@ function toggleMode(){
 }
 state = "light";
 const r = document.querySelector(':root');
+const button = document.getElementById('modeToggle');
+button.innerText = "Dark Mode";

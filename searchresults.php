@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/0c7165f7a1.js" crossorigin="anonymous"></script>
+        <script src="scripts/modeManager.js" defer></script>
     </head>
     <body>
         <div class="tab" id="header">

@@ -57,7 +57,7 @@
             <button class="tablinks" href="">Help</button>
             <button class="tablinks" href="">Font Size -</button>
             <button class="tablinks" href="">Font Size +</button>
-            <button class="tablinks" onclick="toggleMode()">Light/Dark Mode</button>
+            <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
         </div>
     </div>
         <?php
