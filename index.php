@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/0c7165f7a1.js" crossorigin="anonymous"></script>
+        <script src="scripts/modeManager.js" defer></script>
     </head>
     <body class="">
         <div class="tab" id="header">
@@ -56,7 +57,7 @@
             <button class="tablinks" href="">Help</button>
             <button class="tablinks" href="">Font Size -</button>
             <button class="tablinks" href="">Font Size +</button>
-            <button class="tablinks" href="">Light/Dark Mode</button>
+            <button class="tablinks" id="lightDarkToggle" href="">Light/Dark Mode</button>
         </div>
     </div>
         <?php

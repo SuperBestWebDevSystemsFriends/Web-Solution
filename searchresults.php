@@ -26,19 +26,17 @@
         <div class="content">
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <table>
-                <?php
-                    $sql=$db->prepare('SELECT * FROM Items WHERE name=:name');
-                    $sql->execute(array(':name'=>$_REQUEST[searchcategory]));
+            <?php
+                if(mysqli_connect_errno()) {
+                    echo "Could not connect to database, please check connection details"
+                    exit();
+                }
 
-                    while ($row=$sql->fetch()) 
-                    {
-                        echo "<tr><td>$row[name]</td><td>$row[price]</td><td>$row[description]</td></tr>";
-                    }
-                ?>
-            </table>
-
+            $search = $_POST['search']."*";
+            $search_query = $link->prepare("SELECT name FROM Item WHERE MATCH(name) AGAINST (? IN BOOLEAN MODE)");
             
+
+            ?>
         </div>
 
         <div class="tab qaction" id="quickaction">

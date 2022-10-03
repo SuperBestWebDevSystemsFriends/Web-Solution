@@ -80,6 +80,41 @@
             <h2>CVV</h2> -->
         </div>
 
+        <div class="Summary">
+            <h4>ORDER SUMMARY</h4>
+
+            <?php
+                // require_once "dbconn.php";
+                $sql = "SELECT name, quantity, price, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                $sqlTotal = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                
+                if($result = mysqli_query($conn, $sql)){
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<p class=\"summaryItems\">" . $row["quantity"] . "x " . $row["name"] . "           $" . $row["sum"] . "</p>";
+                    }
+                    mysqli_free_result($result);
+                }
+
+                if($resultTotal = mysqli_query($conn, $sqlTotal)){
+                    if(mysqli_num_rows($resultTotal) == 0){
+                        echo "<p> Your cart is empty. </p>";
+                    }
+                    else{
+                        $sumTotal = mysqli_fetch_assoc($resultTotal)["Total"] + 15.99;
+                        echo "<p class=\"summaryTotal\" id=\"shipping\"> Shipping $15.99</p>";
+                        echo "<p class=\"summaryTotal\" id=\"Total\"> Total $". $sumTotal ."</p>";
+                    }
+                    mysqli_free_result($resultTotal);
+                }
+                mysqli_close($conn);
+            ?>
+
+        </div>
+
+        <div class="whitespace">
+
+        </div>
+
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer" id="header">
                 <button class="tablinks" href="">Help</button>
