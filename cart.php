@@ -34,7 +34,7 @@
             <div class="fproducts">
                 <h2>Featured Products</h2>
                 <form action = "Checkout.php">
-                    <input class="tabButton active" type="submit" value = "Checkout"/>
+                    <input class="button2" type="submit" value = "Checkout"/>
                 </form>
                 <div class="product">
                     <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
