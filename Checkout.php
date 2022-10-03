@@ -42,8 +42,8 @@
                 else{
                     echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". String($row[0]) ."\">";
                     mysqli_free_result($result);
-                    mysqli_close($conn);
                 }
+                mysqli_close($conn);
             }
             ?>
             <!-- <h2>Full Name</h2// >
