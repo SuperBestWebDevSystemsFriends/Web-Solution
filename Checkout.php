@@ -40,19 +40,20 @@
                     echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for Null\">";
                 }
                 else{
-
-ring()t                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". String($row[0]) ."\">";
+                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". String($row[0]) ."\">";
+                    mysqli_free_result($result);
+                    mysqli_close($conn);
                 }
             }
             ?>
-            <!-- <h2>Full Name</h2>
+            <!-- <h2>Full Name</h2// >
             <h2>Email</h2>
             <h2>Address</h2>
             <h2>City</h2>
             <h2>State</h2>
-            <h2>Post Code</h2>
-            <h2>Payment</h2>
-            <h2>Name on Card</h2>
+            <h2>Post Co// de</h2>
+            <h>Payment</h// 2>
+            <h2>Name on Card</// h2>
             <h2>Credit Card Number</h2>
             <h2>Expiry Month</h2>
             <h2>Expiry Year</h2>
