@@ -1,6 +1,7 @@
-:root{
+:root {
 
-    --ff-primary: Arial, Helvetica, sans-serif;;
+    --ff-primary: Arial, Helvetica, sans-serif;
+    ;
     --ff-secondary: ocr-b-std, monospace;
 
     --fw-thin: 100;
@@ -11,6 +12,8 @@
     --clr-light: #ffffff;
     --clr-dark: #000000;
     --clr-accent: #0071ce;
+    --clr-accent-dark: #004b87;
+    --clr-accent-light: #b3d7f5;
 
     --fs-h1: 3.7rem;
     --fs-h2: 1.5rem;
@@ -19,19 +22,19 @@
 
 }
 
-input[type="text"]{
-	border: 1px;
-	border-style: solid;
-	border-color: #dddddd;
-	padding: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	width: 50%;
+input[type="text"] {
+    border: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
     border-radius: 25px;
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body.dark{
+body.dark {
     --clr-light: #2e2e2e;
     --clr-dark: #ffffff;
     --clr-accent: #0071ce;
@@ -50,7 +53,8 @@ h1 {
 
 /* Style the tab */
 .tab {
-    width: 99vw; /* Your element needs a fixed width */
+    width: 99vw;
+    /* Your element needs a fixed width */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -72,7 +76,7 @@ h1 {
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 
 /* Change background color of buttons on hover */
@@ -93,7 +97,7 @@ h1 {
     outline: none;
     cursor: pointer;
     padding: 16px 16px;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 
 /* Change background color of buttons on hover */
@@ -116,12 +120,59 @@ h1 {
     border-top: none;
 }
 
-#quickaction{
+#quickaction {
     position: fixed;
     top: 90%;
     width: 98.5%;
 }
 
-.whitespace{
+.whitespace {
     height: 80px;
+}
+
+.searchButton {
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 9px 10px 8px 10px !important;
+}
+
+.featuredContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+img {
+    max-width: 100%
+}
+
+.featuredImage {
+    flex-basis: 30%
+}
+
+.featuredDesc {
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.button2 {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.button2:hover{
+    background-color: var(--clr-accent-dark);
+    transition: 0.3s ease-in-out;
 }

@@ -33,7 +33,7 @@
             <input type="submit" id="placeOrder" value="Place Order for ">
             <?php require_once "dbconn.php"
 
-            $sql = "SELECT SUM(price) FROM Cart c, Item i WHERE c.item_id = i.item_id GROUP BY user_id"
+            $sql = "SELECT SUM(price*quantity) FROM Cart c, Item i WHERE c.item_id = i.item_id GROUP BY user_id"
 
             ?>
             <!-- <h2>Full Name</h2>
