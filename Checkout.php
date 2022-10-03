@@ -40,7 +40,11 @@
                     echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for Null\">";
                 }
                 else{
-                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". mysqli_fetch_row($result[0]) ."\">";
+                    while ($row = $result->fetch_row()) {
+                        echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for ". mysqli_fetch_assoc($result) ."\">";
+                        echo $result;
+                        echo mysql_fetch_assoc($result);
+                    }
                 }
                 mysqli_free_result($result);
             }
