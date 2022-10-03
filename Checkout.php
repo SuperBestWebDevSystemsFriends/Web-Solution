@@ -64,7 +64,6 @@
                 }
                 mysqli_free_result($result);
             }
-            mysqli_close($conn);
             ?>
             <!-- <h2>Full Name</h2// >
             <h2>Email</h2>
@@ -84,7 +83,6 @@
             <h4>ORDER SUMMARY</h4>
 
             <?php
-                // require_once "dbconn.php";
                 $sql = "SELECT name, quantity, price, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                 $sqlTotal = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
                 
