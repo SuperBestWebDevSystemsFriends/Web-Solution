@@ -40,11 +40,11 @@
                     echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for Null\">";
                 }
                 else{
-                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". String($row[0]) ."\">";
-                    mysqli_free_result($result);
+                    echo "<input type=\"submit\" id=\"placeOrder\" value=\"Place Order for". mysqli_fetch_row($result) ."\">";
                 }
-                mysqli_close($conn);
+                mysqli_free_result($result);
             }
+            mysqli_close($conn);
             ?>
             <!-- <h2>Full Name</h2// >
             <h2>Email</h2>
