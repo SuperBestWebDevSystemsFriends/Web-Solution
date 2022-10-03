@@ -25,6 +25,7 @@
         <div class="content">
             <h1>SENIOR</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
+            <p>bing chandler</p>
             <form>
                 <input type="text" placeholder="Search..">
                 <button type="submit" class="button2 searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
