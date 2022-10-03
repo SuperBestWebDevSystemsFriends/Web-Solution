@@ -26,7 +26,17 @@
         <div class="content">
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
-            
+            <table>
+                <?php
+                    $sql=$db->prepare('SELECT * FROM Items WHERE name=:name');
+                    $sql->execute(array(':name'=>$_REQUEST[searchcategory]));
+
+                    while ($row=$sql->fetch()) 
+                    {
+                        echo "<tr><td>$row[name]</td><td>$row[price]</td><td>$row[description]</td></tr>";
+                    }
+                ?>
+            </table>
 
             
         </div>
