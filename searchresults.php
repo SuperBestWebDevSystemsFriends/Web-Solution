@@ -27,14 +27,10 @@
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <?php
-                if(mysqli_connect_errno()) {
-                    echo "Could not connect to database, please check connection details"
-                    exit();
-                }
 
-                $search = $_POST['searchcategory']."*";
+                $search = $_POST['search']."*";
 
-                $search_query = $link->prepare("SELECT name FROM Item WHERE MATCH(name) AGAINST (? IN BOOLEAN MODE)");
+                $search_query = $link->prepare("SELECT name FROM Item WHERE MATCH(name)");
                 $search_query->bind_param('s', $search);
                 $search_query->execute();
                 $search_query->store_result();

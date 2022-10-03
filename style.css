@@ -159,7 +159,7 @@ img {
 
 .button2 {
     background-color: var(--clr-accent);
-    color: var(--clr-light);
+    color: white;
     border: none;
     padding: 20px;
     text-align: center;
