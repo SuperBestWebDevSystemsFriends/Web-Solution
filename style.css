@@ -53,7 +53,7 @@ h1 {
 
 /* Style the tab */
 .tab {
-    width: 99vw;
+    width: 98vw;
     /* Your element needs a fixed width */
     overflow: hidden;
     display: flex;
@@ -175,4 +175,14 @@ img {
 .button2:hover{
     background-color: var(--clr-accent-dark);
     transition: 0.3s ease-in-out;
+}
+
+.progressBar{
+    height: 10px;
+    width: 150px;
+    background-color: teal;
+}
+
+.progressContainer{
+    display: inline-block;
 }
