@@ -1,7 +1,6 @@
 :root {
 
     --ff-primary: Arial, Helvetica, sans-serif;
-    ;
     --ff-secondary: ocr-b-std, monospace;
 
     --fw-thin: 100;
@@ -40,7 +39,6 @@ body.dark {
     --clr-dark: #ffffff;
     --clr-accent: #0071ce;
     --clr-grey: #666666;
-    transition: 0.25s ease-in;
 }
 
 body {
@@ -48,7 +46,6 @@ body {
     text-align: center;
     background-color: var(--clr-light);
     color: var(--clr-dark);
-    transition: 0.25s ease-in;
 }
 
 h1 {

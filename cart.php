@@ -5,7 +5,7 @@
         <script src="https://kit.fontawesome.com/0c7165f7a1.js" crossorigin="anonymous"></script>
         <script src="scripts/modeManager.js" defer></script>
     </head>
-    <body>
+    <body style="transition: 0s !important">
         <div class="tab" id="header">
             <div class="tabSpacer">
                 <form class="tabContainer" action = "index.php">
