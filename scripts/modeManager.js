@@ -1,8 +1,5 @@
 function toggleMode(){
-    const r = document.querySelector(':root');
-    console.log("toggleMode "+times);
-    times++;
-    if(state="light"){
+    if(state=="light"){
         state="dark";
         r.style.setProperty('--clr-light', "dimgrey");
         r.style.setProperty('--clr-grey', 'grey');
@@ -10,7 +7,7 @@ function toggleMode(){
         r.style.setProperty('--clr-accent-dark', '#b3d7f5');
         r.style.setProperty('--clr-accent-light', '#004b87');
     }
-    else if(state="dark"){
+    else if(state=="dark"){
         state="light";
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#cccccc');
@@ -20,4 +17,4 @@ function toggleMode(){
     }
 }
 state = "light";
-times = 1;
+const r = document.querySelector(':root');
