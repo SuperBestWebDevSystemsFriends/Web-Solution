@@ -27,10 +27,10 @@
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <?php
-                if(mysqli_connect_errno()) {
-                    echo "Could not connect to database, please check connection details"
-                    exit();
-                }
+                //if(mysqli_connect_errno()) {
+                //    echo "Could not connect to database, please check connection details"
+                //    exit();
+                //}
 
                 $search = $_POST['searchcategory']."*";
 
@@ -39,12 +39,12 @@
                 $search_query->execute();
                 $search_query->store_result();
                 $search_rows = $search_query->num_rows;
-                $search_query->bind_result($product_name);
+                $search_query->bind_result($name);
 
                 if($search_rows > 0){
                     while($search_query->fetch()){
                     echo "Your search returned $search_rows results";
-                    echo "$product_name <br>";
+                    echo "$name <br>";
                     }
                 } else { echo "Your search returned no results, sorry :("; }
             ?>

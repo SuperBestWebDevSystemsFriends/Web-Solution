@@ -1,6 +1,7 @@
-function toggleMode(event){
+function toggleMode(){
     const r = document.querySelector(':root');
-    console.log("toggleMode");
+    console.log("toggleMode "+times);
+    times++;
     if(state="light"){
         state="dark";
         r.style.setProperty('--clr-light', 'dimgrey');
@@ -18,3 +19,5 @@ function toggleMode(event){
         r.style.setProperty('--clr-accent-light', '#b3d7f5');
     }
 }
+state = "light";
+times = 1;
