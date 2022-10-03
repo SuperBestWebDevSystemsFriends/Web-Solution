@@ -31,6 +31,11 @@
             <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
             <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
             <input type="submit" id="placeOrder" value="Place Order for ">
+            <?php require_once "dbconn.php"
+
+            $sql = "SELECT SUM(price) FROM Cart c, Item i WHERE c.item_id = i.item_id GROUP BY user_id"
+
+            ?>
             <!-- <h2>Full Name</h2>
             <h2>Email</h2>
             <h2>Address</h2>
