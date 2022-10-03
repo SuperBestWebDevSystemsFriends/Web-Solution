@@ -32,7 +32,7 @@
             <div class="fproducts">
                 <h2>Featured Products</h2>
                 <form action = "product.php">
-                        <input class="tabButton" type="submit" value = "Product Dummy"/>
+                        <input class="button2" type="submit" value = "Product Dummy"/>
                 </form>
                 <div class="product">
                     <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
