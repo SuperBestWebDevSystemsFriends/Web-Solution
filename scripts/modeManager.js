@@ -22,7 +22,7 @@ function toggleMode(){
 }
 
 function fontIncrease(){
-    if(state.size<=1.5){
+    if(state.size<=1.0){
         state.size+=0.5;
         r.style.setProperty('--fs-h1', (state.size+3.7)+"rem");
         r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
@@ -31,15 +31,20 @@ function fontIncrease(){
         localStorage.setItem('state', JSON.stringify(state));
     }
     if(state.size>=1.5){
-        fontIncreaseButton.classList.add = "disabled";
+        fontIncreaseButton.classList.toggle("disabled");
+        fontIncreaseButton.disabled = true;
+        iLocked = true;
     }
-    else{
-        fontIncreaseButton.classList.remove = "disabled";
+    else if(dLocked){
+        fontDecreaseButton.classList.toggle("disabled");
+        fontDecreaseButton.disabled = false;
+        dLocked = false;
     }
+    console.log(state.size);
 }
 
 function fontDecrease(){
-    if(state.size>=0.5){
+    if(state.size>=0){
         state.size-=0.5;
         r.style.setProperty('--fs-h1', (state.size+3.7)+"rem");
         r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
@@ -47,12 +52,19 @@ function fontDecrease(){
         r.style.setProperty('--fs-p', (state.size+1)+"rem");
         localStorage.setItem('state', JSON.stringify(state));
     }
-    if(state.size>=0.5){
-        fontIncreaseButton.classList.add = "disabled";
+    console.log(fontDecreaseButton.className);
+    if(state.size<=-0.5){
+        fontDecreaseButton.classList.toggle("disabled");
+        fontDecreaseButton.disabled = true;
+        dLocked = true;
     }
-    else{
-        fontIncreaseButton.classList.remove = "disabled";
+    else if(iLocked){
+        fontIncreaseButton.classList.toggle("disabled");
+        fontIncreaseButton.disabled = false;
+        iLocked = false;
     }
+    console.log(state.size);
+    console.log(fontDecreaseButton.className);
 }
 
 function init(){
@@ -76,23 +88,21 @@ function init(){
     r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
     r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
     r.style.setProperty('--fs-p', (state.size+1)+"rem");
-    if(state.size>=1.5){
-        fontIncreaseButton.classList.add = "disabled";
+    if(state.size<=-0.5){
+        fontDecreaseButton.classList.toggle("disabled");
+        fontDecreaseButton.disabled = true;
+        dLocked = true;
     }
-    else{
-        fontIncreaseButton.classList.remove = "disabled";
-    }
-    if(state.size>=0.5){
-        fontIncreaseButton.classList.add = "disabled";
-    }
-    else{
-        fontIncreaseButton.classList.remove = "disabled";
+    else if(state.size>=1.5){
+        fontIncreaseButton.classList.toggle("disabled");
+        fontIncreaseButton.disabled = true;
+        iLocked = true;
     }
 }
 
 state = {
     mode: "light",
-    size: 1
+    size: 0
 };
 console.log(localStorage.getItem('state'));
 if(localStorage.getItem('state')!=null){
@@ -103,6 +113,8 @@ var b = document.getElementsByTagName("body")[0];
 const modeButton = document.getElementById('modeToggle');
 const fontIncreaseButton = document.getElementById('fontIncrease');
 const fontDecreaseButton = document.getElementById('fontDecrease');
+var dLocked = false;
+var iLocked = false;
 init();
 setTimeout(function(){
     b.style.setProperty('transition', '0.25s ease-in');

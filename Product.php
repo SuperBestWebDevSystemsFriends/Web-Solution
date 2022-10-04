@@ -37,7 +37,7 @@
                 <?php 
                     require_once "dbconn.php";
 
-                    $sql = "SELECT * FROM Item;
+                    $sql = "SELECT * FROM Item;"
 
                 
                     $results = mysqli_query($conn, $sql) or die(mysqli_error());
@@ -63,8 +63,8 @@
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer container">
                 <button class="tablinks" href="">Help</button>
-                <button class="tablinks" href="">Font Size -</button>
-                <button class="tablinks" href="">Font Size +</button>
+                <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">Font Size -</button>
+                <button class="tablinks" onclick="fontIncrease()" id="fontIncrease">Font Size +</button>
                 <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
             </div>
         </div>

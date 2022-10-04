@@ -109,7 +109,7 @@ h1 {
 
 .tab button.disabled{
     background-color: var(--clr-grey);
-    color: var(--clr-dark);
+    color: grey;
     cursor: not-allowed;
 }
 
