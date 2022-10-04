@@ -36,7 +36,7 @@
 
             $min_length = 3;
 
-            $sql = "SELECT * FROM Item WHERE ('name' LIKE '%".$search."%')";
+            $sql = "SELECT * FROM Item WHERE name LIKE '%".$search."%'";
 
             if(strlen($search) >= $min_length) {
                 $search = htmlspecialchars($search);
