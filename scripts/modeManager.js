@@ -1,7 +1,7 @@
 function toggleMode(){
     if(state.mode=="light"){
         state.mode="dark";
-        button.innerText = "Light Mode";
+        modeButton.innerText = "Light Mode";
         r.style.setProperty('--clr-light', "#404040");
         r.style.setProperty('--clr-grey', '#666666');
         r.style.setProperty('--clr-dark', 'white');
@@ -11,7 +11,7 @@ function toggleMode(){
     }
     else if(state.mode=="dark"){
         state.mode="light";
-        button.innerText = "Dark Mode";
+        modeButton.innerText = "Dark Mode";
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#eeeeee');
         r.style.setProperty('--clr-dark', '#000000');
@@ -21,9 +21,43 @@ function toggleMode(){
     }
 }
 
+function fontIncrease(){
+    if(state.size<=1.5){
+        state.size+=0.5;
+        r.style.setProperty('--fs-h1', (state.size+3.7)+"rem");
+        r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
+        r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
+        r.style.setProperty('--fs-p', (state.size+1)+"rem");
+        localStorage.setItem('state', JSON.stringify(state));
+    }
+    if(state.size>=1.5){
+        fontIncreaseButton.classList.add = "disabled";
+    }
+    else{
+        fontIncreaseButton.classList.remove = "disabled";
+    }
+}
+
+function fontDecrease(){
+    if(state.size>=0.5){
+        state.size-=0.5;
+        r.style.setProperty('--fs-h1', (state.size+3.7)+"rem");
+        r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
+        r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
+        r.style.setProperty('--fs-p', (state.size+1)+"rem");
+        localStorage.setItem('state', JSON.stringify(state));
+    }
+    if(state.size>=0.5){
+        fontIncreaseButton.classList.add = "disabled";
+    }
+    else{
+        fontIncreaseButton.classList.remove = "disabled";
+    }
+}
+
 function init(){
     if(state.mode=="light"){
-        button.innerText = "Dark Mode";
+        modeButton.innerText = "Dark Mode";
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#eeeeee');
         r.style.setProperty('--clr-dark', '#000000');
@@ -31,18 +65,34 @@ function init(){
         r.style.setProperty('--clr-accent-light', '#b3d7f5');
     }
     else if(state.mode=="dark"){
-        button.innerText = "Light Mode";
+        modeButton.innerText = "Light Mode";
         r.style.setProperty('--clr-light', "#404040");
         r.style.setProperty('--clr-grey', '#666666');
         r.style.setProperty('--clr-dark', 'white');
         r.style.setProperty('--clr-accent-dark', '#b3d7f5');
         r.style.setProperty('--clr-accent-light', '#004b87');
     }
+    r.style.setProperty('--fs-h1', (state.size+3.7)+"rem");
+    r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
+    r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
+    r.style.setProperty('--fs-p', (state.size+1)+"rem");
+    if(state.size>=1.5){
+        fontIncreaseButton.classList.add = "disabled";
+    }
+    else{
+        fontIncreaseButton.classList.remove = "disabled";
+    }
+    if(state.size>=0.5){
+        fontIncreaseButton.classList.add = "disabled";
+    }
+    else{
+        fontIncreaseButton.classList.remove = "disabled";
+    }
 }
 
 state = {
     mode: "light",
-    size: 14.0
+    size: 1
 };
 console.log(localStorage.getItem('state'));
 if(localStorage.getItem('state')!=null){
@@ -50,8 +100,10 @@ if(localStorage.getItem('state')!=null){
 }
 const r = document.querySelector(':root');
 var b = document.getElementsByTagName("body")[0]; 
-const button = document.getElementById('modeToggle');
+const modeButton = document.getElementById('modeToggle');
+const fontIncreaseButton = document.getElementById('fontIncrease');
+const fontDecreaseButton = document.getElementById('fontDecrease');
 init();
 setTimeout(function(){
     b.style.setProperty('transition', '0.25s ease-in');
-}, 1000);
+}, 100);
