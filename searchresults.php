@@ -27,23 +27,64 @@
         <div class="content">
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <?php
 
-                $search = $_POST['search']."*";
+            <?php 
+            require_once "dbconn.php";
 
-                $search_query = $link->prepare("SELECT name FROM Item WHERE MATCH(name)");
-                $search_query->bind_param('s', $search);
-                $search_query->execute();
-                $search_query->store_result();
-                $search_rows = $search_query->num_rows;
-                $search_query->bind_result($name);
 
-                if($search_rows > 0){
-                    while($search_query->fetch()){
-                    echo "Your search returned $search_rows results";
-                    echo "$name <br>";
+            $search = $_POST['search'];
+
+            $min_length = 3;
+
+            $sql = "SELECT * FROM Item WHERE ('name' LIKE '%".$search."%')";
+
+            if(strlen($search) >= $min_length) {
+                $search = htmlspecialchars($search);
+                $search = mysqli_real_escape_string($search);
+                $results = mysqli_query($conn, $sql) or die(mysqli_error());
+                if(mysqli_num_rows($results) > 0) {
+                    while($refined_result = mysqli_fetch_array($results)) {
+                        echo "<p><h3>".$refined_result['name']."</h3>".$refined_result['description']."</p>";
                     }
-                } else { echo "Your search returned no results, sorry :("; }
+                }
+                else {
+                    echo "No results";
+                }
+            }
+            else {
+                echo "Minimum length of search is ".$min_length;
+            }
+            mysqli_close($conn);
+            
+            
+
+
+            
+            // $sql = "SELECT name, quantity, price, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+            //     $sqlTotal = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                
+            //     if($result = mysqli_query($conn, $sql)){
+            //         while($row = mysqli_fetch_assoc($result)){
+            //             echo "<p class=\"summaryItems\">" . $row["quantity"] . "x " . $row["name"] . "           $" . $row["sum"] . "</p>";
+            //         }
+            //         mysqli_free_result($result);
+            //     }
+
+            //     if($resultTotal = mysqli_query($conn, $sqlTotal)){
+            //         if(mysqli_num_rows($resultTotal) == 0){
+            //             echo "<p> Your cart is empty. </p>";
+            //         }
+            //         else{
+            //             $sumTotal = mysqli_fetch_assoc($resultTotal)["Total"] + 15.99;
+            //             echo "<p class=\"summaryTotal\" id=\"shipping\"> Shipping $15.99</p>";
+            //             echo "<p class=\"summaryTotal\" id=\"Total\"> Total $". $sumTotal ."</p>";
+            //         }
+            //         mysqli_free_result($resultTotal);
+            //     }
+            //     mysqli_close($conn);
+
+
+
             ?>
         </div>
 
