@@ -26,7 +26,7 @@
 
         <div class="content">
             <h1>Product</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>
+            <h2>The place for Old Dogs to buy outdoor shit</h2>hjkhkjh
             <form>
                 <input type="text" placeholder="Search..">
                 <button type="submit">Search</button>
