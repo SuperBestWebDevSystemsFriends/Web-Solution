@@ -37,24 +37,28 @@
                 <?php 
                     require_once "dbconn.php";
 
-                    $sql = "SELECT * FROM Item;"
+                    $sql = "SELECT * FROM Item i, User_ u";
 
-                
-                    $results = mysqli_query($conn, $sql) or die(mysqli_error());
-                    if(mysqli_num_rows($results) > 0) {
-                        while($refined_result = mysqli_fetch_array($results)) {
-                            echo "<p><h3>".$refined_result['name']."</h3>".$refined_result['description']."</p>";
-                        }  
+                    if($result = mysqli_query($conn, $sql)){
+                        if(mysqli_num_rows($result) > 0) {
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo "<div class=\"confirmationItem\">";
+                                echo "<img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                                echo "<p>" . $row["name"] . "</p>";
+                                echo "<p> $" . $row["price"] . "</p>";
+                                echo "<p>" . $row["description"] . "</p>";
+                                echo "<p>" . $row["username"] . "</p>";
+                                echo "</div>";
+                            }  
+                        }
+                        mysqli_free_result($result);
                     }
                     else {
                         echo "No results";
                     }
                     mysqli_close($conn);
-
                 ?>
-
                 </div>
-                
             </div>
         </div>
 
