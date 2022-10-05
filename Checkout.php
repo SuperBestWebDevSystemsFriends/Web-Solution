@@ -48,7 +48,7 @@
             </div>
             <br>
             
-            <div class="payment">
+            <div class="payment" id="payment">
                 <input type="text" id="cardNumber" placeholder="Card Number" require = true;>
                 <input type="text" id="cvv" placeholder="CVV" require = true;>
                 <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
@@ -100,7 +100,7 @@
 
         </div>
 
-        <div class="confirmation">
+        <div class="confirmation" id="confirmation">
             <h3>Confirmation</h3>
                 <?php
                     $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
