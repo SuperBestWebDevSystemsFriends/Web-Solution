@@ -37,8 +37,8 @@
                 <?php 
                     require_once "dbconn.php";
 
-                    $sql = "SELECT * FROM Item i, User_ u";
-
+                    $sql = "SELECT * FROM Item i, User_ u WHERE i.seller = u.user_id;";
+                    
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)) {
@@ -54,6 +54,7 @@
                         mysqli_free_result($result);
                     }
                     else {
+                        echo mysqli_num_rows(mysqli_query($conn, $sql));
                         echo "No results";
                     }
                     mysqli_close($conn);
