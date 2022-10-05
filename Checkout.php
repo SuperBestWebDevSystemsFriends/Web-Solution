@@ -66,30 +66,18 @@
                 mysqli_free_result($result);
             }
             ?>
-            <!-- <h2>Full Name</h2// >
-            <h2>Email</h2>
-            <h2>Address</h2>
-            <h2>City</h2>
-            <h2>State</h2>
-            <h2>Post Co// de</h2>
-            <h>Payment</h// 2>
-            <h2>Name on Card</// h2>
-            <h2>Credit Card Number</h2>
-            <h2>Expiry Month</h2>
-            <h2>Expiry Year</h2>
-            <h2>CVV</h2> -->
         </div>
 
         <div class="Summary">
             <h4>ORDER SUMMARY</h4>
 
             <?php
-                $sql = "SELECT name, quantity, price, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                 $sqlTotal = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
                 
                 if($result = mysqli_query($conn, $sql)){
                     while($row = mysqli_fetch_assoc($result)){
-                        echo "<p class=\"summaryItems\">" . $row["quantity"] . "x " . $row["name"] . "           $" . $row["sum"] . "</p>";
+                        echo "<p class=\"summaryItems\">" . $row["quantity"] . "x " . $row["name"] . " $" . $row["sum"] . "</p>";
                     }
                     mysqli_free_result($result);
                 }
@@ -105,9 +93,27 @@
                     }
                     mysqli_free_result($resultTotal);
                 }
-                mysqli_close($conn);
             ?>
 
+        </div>
+
+        <div class="confirmation">
+            <h3>Confirmation</h3>
+                <?php
+                    $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                    if($result = mysqli_query($conn, $sql)){
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<div class=\"confirmationItem\">";
+                            echo "<img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                            echo "<p>" . $row["name"] . "</p>";
+                            echo "<p> $" . $row["price"] . "</p>";
+                            echo "<p>" . $row["description"] . "</p>";
+                            echo "</div>";
+                        }
+                        mysqli_free_result($result);
+                    }
+                    mysqli_close($conn);
+                ?>
         </div>
 
         <div class="whitespace">
