@@ -30,16 +30,21 @@
             <form action="" method="POST">
                 <ol>
                     <li> Item Name </li>
-                    <input type="text" name="itemName" value="e.g Swiggity Swag">
+                    <input type="text" name="itemName" placeholder="e.g Swiggity Swag">
 
 
                     <li> Item Price </li>
-                    <input type="number" min="1" step="any">
+                    <p class="currencyInput">$  <input class = "currencyInput" type="number" min="1" step="any" placeholder="00.00"></p>
 
                     <li> Item Description </li>
                     <input type="text" name="desc" size=100>
 
                     <li> Item Photo </li>
+                    <br>
+                    <label class="fileUpload">
+                        <input type="file" accept=".jpg, .jpeg"/>
+                        <i class="fa fa-cloud-upload"></i> Choose an image to upload.
+                    </label>
 
                 </ol>
 
@@ -81,12 +86,27 @@
         </div>
         <div class="whitespace"></div>
 
-        <div class="tab qaction" id="quickaction">
-            <div class="tabSpacer container">
-                <button class="tablinks" href="">Help</button>
-                <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">Font Size -</button>
-                <button class="tablinks" onclick="fontIncrease()" id="fontIncrease">Font Size +</button>
-                <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
+        <div class="qactionWrapper">
+            <div class="tab qaction" id="quickaction">
+                <div class="tabSpacer container">
+                    <button class="tablinks" id="helpToggle" onclick="toggleHelp()">
+                        <i class="fa-solid fa-circle-question"></i> Help
+                    </button>
+                    <div class="helpWindow" id="help">
+                        <h2>Contact Helpline</h2>
+                        <p><i class="fa-solid fa-phone"> </i>  <a href="mailto:helpdesk@senior.com"><u>helpdesk@senior.com</u></a></p>
+                        <p><i class="fa-solid fa-envelope"> </i>  <a href=""><u>1300-1234</u></a></p>
+                    </div>
+                    <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">
+                        <i class="fa-solid fa-minus"></i> <i class="fa-solid fa-text-height"></i> Font Size
+                    </button>
+                    <button class="tablinks" onclick="fontIncrease()" id="fontIncrease"> 
+                        <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-text-height"></i> Font Size
+                    </button>
+                    <button class="tablinks" onclick="toggleMode()" id="modeToggle">
+                        Light/Dark Mode
+                    </button>
+                </div>
             </div>
         </div>
         <?php
