@@ -63,7 +63,7 @@
                         echo "<p> Your cart is empty. </p>";
                     }
                     else{
-                        echo "<input type=\"button\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". mysqli_fetch_assoc($result)["Total"] ."\">";
+                        echo "<input type=\"button\" onlick=\"hidePayment()\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". mysqli_fetch_assoc($result)["Total"] ."\">";
                     }
                     mysqli_free_result($result);
                 }
