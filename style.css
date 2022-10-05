@@ -1,7 +1,7 @@
 :root {
 
     --ff-primary: Arial, Helvetica, sans-serif;
-    --ff-secondary: ocr-b-std, monospace;
+    --ff-secondary: Arial, Helvetica, sans-serif;
 
     --fw-thin: 100;
     --fw-regular: 400;
@@ -20,6 +20,24 @@
     --fs-h3: 1.25rem;
     --fs-p: 1rem;
 
+}
+
+p{
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-p);
+}
+
+h2{
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+}
+
+h3{
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
 }
 
 input[type="text"] {
@@ -50,6 +68,8 @@ body {
 
 h1 {
     font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+    font-family: var(--ff-secondary);
 }
 
 .tab {
@@ -153,11 +173,46 @@ h1 {
 }
 
 #quickaction {
+    border-radius: 50px;
+}
+
+.qactionWrapper{
     position: fixed;
     top: 90%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%, 0);
-    border-radius: 50px;
+}
+
+.helpWindow{
+    padding: 10px;
+    width: 13%;
+    background-color: var(--clr-grey);
+    border-radius: 25px 25px 0px 0px;
+    position: fixed;
+    bottom: 100%;
+    right: 70.5%;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.25s ease-in-out;
+}
+
+.helpWindow.active{
+    opacity: 1;
+    transition: 0.25s ease-in-out;
+}
+
+.helpWindow>p{
+    text-align: left;
+}
+
+a{
+    color: var(--clr-accent);
+}
+
+a:visited{
+    color: var(--clr-accent-dark);
 }
 
 .whitespace {

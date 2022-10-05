@@ -1,7 +1,11 @@
 function toggleMode(){
     if(state.mode=="light"){
         state.mode="dark";
-        modeButton.innerText = "Light Mode";
+        if(state.oversize){
+            modeButton.innerHTML = "<i class=\"fa-solid fa-lightbulb\"></i>";
+        } else{
+            modeButton.innerHTML = "<i class=\"fa-solid fa-lightbulb\"></i> Light Mode";
+        }
         r.style.setProperty('--clr-light', "#404040");
         r.style.setProperty('--clr-grey', '#666666');
         r.style.setProperty('--clr-dark', 'white');
@@ -11,7 +15,11 @@ function toggleMode(){
     }
     else if(state.mode=="dark"){
         state.mode="light";
-        modeButton.innerText = "Dark Mode";
+        if(state.oversize){
+            modeButton.innerHTML = "<i class=\"fa-solid fa-moon\"></i>";
+        } else{
+            modeButton.innerHTML = "<i class=\"fa-solid fa-moon\"></i> Dark Mode";
+        }
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#eeeeee');
         r.style.setProperty('--clr-dark', '#000000');
@@ -28,19 +36,20 @@ function fontIncrease(){
         r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
         r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
         r.style.setProperty('--fs-p', (state.size+1)+"rem");
-        localStorage.setItem('state', JSON.stringify(state));
     }
     if(state.size>=1.5){
         fontIncreaseButton.classList.toggle("disabled");
         fontIncreaseButton.disabled = true;
         iLocked = true;
+        state.oversize = true;
+        oversizeAdjust();
     }
     else if(dLocked){
         fontDecreaseButton.classList.toggle("disabled");
         fontDecreaseButton.disabled = false;
         dLocked = false;
     }
-    console.log(state.size);
+    localStorage.setItem('state', JSON.stringify(state));
 }
 
 function fontDecrease(){
@@ -50,9 +59,7 @@ function fontDecrease(){
         r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
         r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
         r.style.setProperty('--fs-p', (state.size+1)+"rem");
-        localStorage.setItem('state', JSON.stringify(state));
     }
-    console.log(fontDecreaseButton.className);
     if(state.size<=-0.5){
         fontDecreaseButton.classList.toggle("disabled");
         fontDecreaseButton.disabled = true;
@@ -62,14 +69,48 @@ function fontDecrease(){
         fontIncreaseButton.classList.toggle("disabled");
         fontIncreaseButton.disabled = false;
         iLocked = false;
+        state.oversize = false;
+        oversizeAdjust();
     }
-    console.log(state.size);
-    console.log(fontDecreaseButton.className);
+    localStorage.setItem('state', JSON.stringify(state));
+}
+
+function toggleHelp(){
+    help.classList.toggle("active");
+    state.help = !state.help 
+    localStorage.setItem('state', JSON.stringify(state));
+}
+
+function oversizeAdjust(){
+    if(state.oversize){
+        if(state.mode=="dark"){
+            modeButton.innerHTML = "<i class=\"fa-solid fa-lightbulb\"></i>";
+        } else{
+            modeButton.innerHTML = "<i class=\"fa-solid fa-moon\"></i>";
+        }
+        helpButton.innerHTML = "<i class=\"fa-solid fa-circle-question\"></i>";
+        fontDecreaseButton.innerHTML = "<i class=\"fa-solid fa-minus\"></i> <i class=\"fa-solid fa-text-height\"></i>";
+        fontIncreaseButton.innerHTML = "<i class=\"fa-solid fa-plus\"></i> <i class=\"fa-solid fa-text-height\"></i>";
+    }
+    else{
+        if(state.mode=="dark"){
+            modeButton.innerHTML = "<i class=\"fa-solid fa-lightbulb\"></i> Light Mode";
+        } else{
+            modeButton.innerHTML = "<i class=\"fa-solid fa-moon\"></i> Dark Mode";
+        }
+        helpButton.innerHTML = "<i class=\"fa-solid fa-circle-question\"></i> Help";
+        fontDecreaseButton.innerHTML = "<i class=\"fa-solid fa-minus\"></i> <i class=\"fa-solid fa-text-height\"></i> Font Size";
+        fontIncreaseButton.innerHTML = "<i class=\"fa-solid fa-plus\"></i> <i class=\"fa-solid fa-text-height\"></i> Font Size";
+    }
 }
 
 function init(){
     if(state.mode=="light"){
-        modeButton.innerText = "Dark Mode";
+        if(state.oversize){
+            modeButton.innerHTML = "<i class=\"fa-solid fa-moon\"></i>";
+        } else{
+            modeButton.innerHTML = "<i class=\"fa-solid fa-moon\"></i> Dark Mode";
+        }
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#eeeeee');
         r.style.setProperty('--clr-dark', '#000000');
@@ -77,7 +118,11 @@ function init(){
         r.style.setProperty('--clr-accent-light', '#b3d7f5');
     }
     else if(state.mode=="dark"){
-        modeButton.innerText = "Light Mode";
+        if(state.oversize){
+            modeButton.innerHTML = "<i class=\"fa-solid fa-lightbulb\"></i>";
+        } else{
+            modeButton.innerHTML = "<i class=\"fa-solid fa-lightbulb\"></i> Light Mode";
+        }
         r.style.setProperty('--clr-light', "#404040");
         r.style.setProperty('--clr-grey', '#666666');
         r.style.setProperty('--clr-dark', 'white');
@@ -88,6 +133,11 @@ function init(){
     r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
     r.style.setProperty('--fs-h3', (state.size+1.25)+"rem");
     r.style.setProperty('--fs-p', (state.size+1)+"rem");
+    if(state.oversize){
+        helpButton.innerHTML = "<i class=\"fa-solid fa-circle-question\"></i>";
+        fontDecreaseButton.innerHTML = "<i class=\"fa-solid fa-minus\"></i> <i class=\"fa-solid fa-text-height\"></i>";
+        fontIncreaseButton.innerHTML = "<i class=\"fa-solid fa-plus\"></i> <i class=\"fa-solid fa-text-height\"></i>";
+    }
     if(state.size<=-0.5){
         fontDecreaseButton.classList.toggle("disabled");
         fontDecreaseButton.disabled = true;
@@ -98,11 +148,16 @@ function init(){
         fontIncreaseButton.disabled = true;
         iLocked = true;
     }
+    if(state.help){
+        help.classList.toggle("active");
+    }
 }
 
 state = {
     mode: "light",
-    size: 0
+    size: 0,
+    help: false,
+    oversize: false
 };
 console.log(localStorage.getItem('state'));
 if(localStorage.getItem('state')!=null){
@@ -113,6 +168,8 @@ var b = document.getElementsByTagName("body")[0];
 const modeButton = document.getElementById('modeToggle');
 const fontIncreaseButton = document.getElementById('fontIncrease');
 const fontDecreaseButton = document.getElementById('fontDecrease');
+const helpButton = document.getElementById('helpToggle');
+const help = document.getElementById('help');
 var dLocked = false;
 var iLocked = false;
 init();
