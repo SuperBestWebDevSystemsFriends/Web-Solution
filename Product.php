@@ -65,12 +65,27 @@
 
         <div class="whitespace"></div>
 
-        <div class="tab qaction" id="quickaction">
-            <div class="tabSpacer container">
-                <button class="tablinks" href="">Help</button>
-                <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">Font Size -</button>
-                <button class="tablinks" onclick="fontIncrease()" id="fontIncrease">Font Size +</button>
-                <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
+        <div class="qactionWrapper">
+            <div class="tab qaction" id="quickaction">
+                <div class="tabSpacer container">
+                    <button class="tablinks" id="helpToggle" onclick="toggleHelp()">
+                        <i class="fa-solid fa-circle-question"></i> Help
+                    </button>
+                    <div class="helpWindow" id="help">
+                        <h2>Contact Helpline</h2>
+                        <p><i class="fa-solid fa-phone"> </i>  <a href="mailto:helpdesk@senior.com"><u>helpdesk@senior.com</u></a></p>
+                        <p><i class="fa-solid fa-envelope"> </i>  <a href=""><u>1300-1234</u></a></p>
+                    </div>
+                    <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">
+                        <i class="fa-solid fa-minus"></i> <i class="fa-solid fa-text-height"></i> Font Size
+                    </button>
+                    <button class="tablinks" onclick="fontIncrease()" id="fontIncrease"> 
+                        <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-text-height"></i> Font Size
+                    </button>
+                    <button class="tablinks" onclick="toggleMode()" id="modeToggle">
+                        Light/Dark Mode
+                    </button>
+                </div>
             </div>
         </div>
         <?php

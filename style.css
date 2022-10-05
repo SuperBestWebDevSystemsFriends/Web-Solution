@@ -28,6 +28,21 @@ p{
     font-size: var(--fs-p);
 }
 
+li{
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-p);
+}
+
+input{
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-p);
+    border-radius: 1000px;
+    padding: 10px 20px;
+    border: 1px solid var(--clr-accent);
+}
+
 h2{
     font-family: var(--ff-primary);
     font-weight: var(--fw-bold);
@@ -40,16 +55,91 @@ h3{
     font-size: var(--fs-h3);
 }
 
+input{
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-p);
+}
+
+button{
+    font-size: var(--fs-p);
+}
+
+input[type = "number"]{
+    width: 47.5%;
+    transition: 0.2s ease-in-out;
+}
+
+input[type="number"]:hover{
+    padding: 15px;
+    border: 3px solid var(--clr-accent-light);
+}
+
+input[type = "file"]{
+    width: 47.5%;
+    background-color: white;
+    color: grey;
+}
+
+input[type = "text"]{
+    transition: 0.2s ease-in-out;
+}
+
+input[type="text"]:hover{
+    padding: 15px;
+    border: 3px solid var(--clr-accent-light);
+}
+
+.fileUpload>input[type = "file"]{
+    display: none;
+}
+
+.fileUpload{
+    width:50%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 1000px;
+    color: black;
+    border: 1px solid var(--clr-accent);
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.fileUpload:hover{
+    background-color: var(--clr-accent);
+    color: white;
+}
+
+input.currencyInput{
+    width: 10.5%;
+}
+p.currencyInput{
+    font-size: var(--fs-p);
+    font-weight: var(--fw-bold);
+}
+
 input[type="text"] {
-    border: 1px;
-    border-style: solid;
-    border-color: #dddddd;
+    border: 1px solid var(--clr-accent);
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 50%;
-    border-radius: 25px;
+    border-radius: 100px;
     box-sizing: border-box;
+}
+
+input[type="submit"]{
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover{
+    background-color: var(--clr-accent-light);
+    border-color: var(--clr-accent-light);
+    color: var(--clr-dark);
+    cursor: pointer;
 }
 
 body.dark {
@@ -133,8 +223,7 @@ h1 {
     cursor: not-allowed;
 }
 
-.tabButton {
-    background-color: inherit;
+.tabButton[type = "submit"] {
     width: 100%;
     text-align: center;
     border: none;
@@ -204,7 +293,12 @@ h1 {
 }
 
 .helpWindow>p{
+    font-size: 1rem;
     text-align: left;
+}
+
+.helpWindow>h2{
+    font-size: 1.5rem;
 }
 
 a{
@@ -253,10 +347,10 @@ img {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: var(--fs-p);
     margin: 4px;
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 1000px;
     padding: 10px 15px;
     transition: 0.3s ease-in-out;
 }
