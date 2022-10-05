@@ -40,7 +40,7 @@
 
             if(strlen($search) >= $min_length) {
                 $search = htmlspecialchars($search);
-                $search = mysqli_real_escape_string($search);
+                $search = mysqli_real_escape_string($conn, $search);
                 $results = mysqli_query($conn, $sql) or die(mysqli_error());
                 if(mysqli_num_rows($results) > 0) {
                     while($refined_result = mysqli_fetch_array($results)) {
