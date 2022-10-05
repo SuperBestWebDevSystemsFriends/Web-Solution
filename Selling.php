@@ -43,7 +43,7 @@
                     <br>
                     <label class="fileUpload">
                         <input type="file" accept=".jpg, .jpeg"/>
-                        <i class="fa fa-cloud-upload"></i> Choose an image to upload.
+                        <i class="fa fa-cloud-upload"></i> Choose an image to upload
                     </label>
 
                 </ol>
@@ -55,11 +55,20 @@
                     <br>
 
                     <li> Item Condition </li>
-                    <input type="Radio" name="Condition" value="New"> New
+                    <label for="N">
+                        <input type="Radio" name="Condition" value="New" id="N"> 
+                        New
+                    </label>
                     <br>
-                    <input type="Radio" name="Condition" value="Used"> Used
+                    <label for="U">
+                        <input type="Radio" name="Condition" value="Used" id="U"> 
+                        Used
+                    </label>
                     <br>
-                    <input type="Radio" name="Condition" value="Love Needed"> Love Needed
+                    <label for="LN">
+                        <input type="Radio" name="Condition" value="Love Needed" id="LN">
+                        Love Needed
+                    </label> 
 
                     <br><br>
                     <li> Additional Details </li> 
@@ -67,11 +76,20 @@
 
 
                     <li> Item Category </li>
-                    <input type="checkbox" name="Camping" value=Camping> Camping
+                    <label for="Cam">
+                        <input type="checkbox" name="Camping" value=Camping id="Cam">
+                        Camping
+                    </label>
                     <br>
-                    <input type="checkbox" name="Caravaning" value=Caravaning> Caravaning
+                    <label for="Car">
+                        <input type="checkbox" name="Caravaning" value=Caravaning id="Car"> 
+                        Caravaning
+                    </label>
                     <br>
-                    <input type="checkbox" name="Hiking" value=Hiking> Hiking
+                    <label for="H">
+                        <input type="checkbox" name="Hiking" value=Hiking id="H"> 
+                        Hiking
+                    </label>
 
 
                 </ul>
