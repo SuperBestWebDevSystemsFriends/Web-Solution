@@ -23,79 +23,74 @@
             </div>
         </div>
 
-
         <div class="content">
+            <div>
             <h1>Sell Item</h1>
-            <h2>Item Information</h2>
+            </div>
             <form action="" method="POST">
-                <ol>
-                    <li> Item Name </li>
-                    <input type="text" name="itemName" placeholder="e.g Swiggity Swag">
+                <h2>Item Information</h2>
+                <h3> Item Name*</h3>
+                <input type="text" name="itemName" placeholder="e.g Swiggity Swag" required>
 
+                <h3> Item Price* </h3>
+                <p class="currencyInput">$  <input class = "currencyInput" type="number" min="1" step="any" placeholder="00.00" required></p>
 
-                    <li> Item Price </li>
-                    <p class="currencyInput">$  <input class = "currencyInput" type="number" min="1" step="any" placeholder="00.00"></p>
+                <h3> Item Description* </h3>
+                <input type="text" name="desc" size=100 required>
 
-                    <li> Item Description </li>
-                    <input type="text" name="desc" size=100>
-
-                    <li> Item Photo </li>
-                    <br>
-                    <label class="fileUpload">
-                        <input type="file" accept=".jpg, .jpeg"/>
-                        <i class="fa fa-cloud-upload"></i> Choose an image to upload
-                    </label>
-
-                </ol>
+                <h3> Item Photo* </h3>
+                <label class="fileUpload">
+                    <input type="file" accept=".jpg, .jpeg" required>
+                    <i class="fa fa-cloud-upload"></i> Choose an image to upload
+                </label>
+                <br><br>
 
                 <h2>Additional Information</h2>
-                <ul> 
-                    
-                    <li> Additional Photos </li>
-                    <br>
 
-                    <li> Item Condition </li>
-                    <label for="N">
-                        <input type="Radio" name="Condition" value="New" id="N"> 
-                        New
-                    </label>
-                    <br>
-                    <label for="U">
-                        <input type="Radio" name="Condition" value="Used" id="U"> 
-                        Used
-                    </label>
-                    <br>
-                    <label for="LN">
-                        <input type="Radio" name="Condition" value="Love Needed" id="LN">
-                        Love Needed
-                    </label> 
+                    <h3> Item Condition (choose one)* </h3>
+                    <span class="groupOptions">
+                        <input class="radio" type="Radio" name="Condition" value="New" id="N"> 
+                        <label for="N" class="radioLabel">
+                            New
+                        </label>
+                        <br>
+                        <input class="radio" type="Radio" name="Condition" value="Used" id="U"> 
+                        <label for="U" class="radioLabel">
+                            Used
+                        </label>
+                        <br>
+                        <input class="radio" type="Radio" name="Condition" value="Love Needed" id="LN">
+                        <label for="LN" class="radioLabel">
+                            Love Needed
+                        </label> 
+                    </span>
 
                     <br><br>
-                    <li> Additional Details </li> 
+                    <h3> Additional Details </h3> 
                     <input type="text" name="additional details" size=100>
 
 
-                    <li> Item Category </li>
-                    <label for="Cam">
-                        <input type="checkbox" name="Camping" value=Camping id="Cam">
-                        Camping
-                    </label>
-                    <br>
-                    <label for="Car">
-                        <input type="checkbox" name="Caravaning" value=Caravaning id="Car"> 
-                        Caravaning
-                    </label>
-                    <br>
-                    <label for="H">
-                        <input type="checkbox" name="Hiking" value=Hiking id="H"> 
-                        Hiking
-                    </label>
-
-
-                </ul>
-
-                <input type="submit" value="Add to Marketplace">
-
+                    <h3> Item Category (choose all that apply, at least one)* </h3>
+                    <span class="groupOptions">
+                        <input class="check" type="checkbox" name="Camping" value=Camping id="Cam">
+                        <label for="Cam" class="checkLabel">
+                            Camping
+                        </label>
+                        <br>
+                        <input class="check" type="checkbox" name="Caravaning" value=Caravaning id="Car"> 
+                        <label for="Car" class="checkLabel">
+                            Caravaning
+                        </label>
+                        <br>
+                        <input class="check" type="checkbox" name="Hiking" value=Hiking id="H"> 
+                        <label for="H" class="checkLabel">
+                            Hiking
+                        </label>
+                    </span>
+                <br><br>
+                <div>
+                    <input type="submit" value="Add to Marketplace">
+                </div>
             </form>
 
     

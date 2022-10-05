@@ -79,6 +79,11 @@ input[type="number"]:hover{
     border: 3px solid var(--clr-accent-light);
 }
 
+input[type="number"]:focus{
+    padding: 15px;
+    border: 3px solid var(--clr-accent);
+}
+
 input[type = "file"]{
     width: 47.5%;
     background-color: white;
@@ -92,6 +97,11 @@ input[type = "text"]{
 input[type="text"]:hover{
     padding: 15px;
     border: 3px solid var(--clr-accent-light);
+}
+
+input[type="text"]:focus{
+    padding: 15px;
+    border: 3px solid var(--clr-accent);
 }
 
 .fileUpload>input[type = "file"]{
@@ -406,4 +416,67 @@ img {
 
 .confirmation{
     display: none;
+}
+
+.radio[type="Radio"] {
+    display: none;
+}
+
+.check[type="Checkbox"] {
+    display: none;
+}
+
+.groupOptions{
+    width: 52%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.radioLabel {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--clr-accent);
+    border-radius: 1000px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    width:100%;
+}
+
+.radioLabel:hover{
+    background-color: var(--clr-accent-light);
+    transition: 0.3s ease-in-out;
+    border: 1px solid var(--clr-accent-light);
+}
+
+.radio[type="Radio"]:checked + .radioLabel {
+    background-color: var(--clr-accent);
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.checkLabel {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--clr-accent);
+    border-radius: 1000px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    width:100%;
+}
+
+.checkLabel:hover{
+    background-color: var(--clr-accent-light);
+    transition: 0.3s ease-in-out;
+    border: 1px solid var(--clr-accent-light);
+}
+
+.check[type="checkbox"]:checked + .checkLabel {
+    background-color: var(--clr-accent);
+    color: white;
+    transition: 0.3s ease-in-out;
 }
