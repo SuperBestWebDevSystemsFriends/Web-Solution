@@ -27,31 +27,45 @@
         <div class="content">
             <h1>Search Results</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <?php
 
-                $search = $_POST['search']."*";
+            <?php 
+            require_once "dbconn.php";
 
-                $search_query = $link->prepare("SELECT name FROM Item WHERE MATCH(name)");
-                $search_query->bind_param('s', $search);
-                $search_query->execute();
-                $search_query->store_result();
-                $search_rows = $search_query->num_rows;
-                $search_query->bind_result($name);
 
-                if($search_rows > 0){
-                    while($search_query->fetch()){
-                    echo "Your search returned $search_rows results";
-                    echo "$name <br>";
+            $search = $_POST['search'];
+
+            $min_length = 3;
+
+            $sql = "SELECT * FROM Item WHERE name LIKE '%".$search."%'";
+
+            if(strlen($search) >= $min_length) {
+                $search = htmlspecialchars($search);
+                $search = mysqli_real_escape_string($search);
+                $results = mysqli_query($conn, $sql) or die(mysqli_error());
+                if(mysqli_num_rows($results) > 0) {
+                    while($refined_result = mysqli_fetch_array($results)) {
+                        echo "<p><h3>".$refined_result['name']."</h3>".$refined_result['description']."</p>";
                     }
-                } else { echo "Your search returned no results, sorry :("; }
+                }
+                else {
+                    echo "No results";
+                }
+            }
+            else {
+                echo "Minimum length of search is ".$min_length;
+            }
+            mysqli_close($conn);
+
             ?>
         </div>
+
+        <div class="whitespace"></div>
 
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer container">
                 <button class="tablinks" href="">Help</button>
-                <button class="tablinks" href="">Font Size -</button>
-                <button class="tablinks" href="">Font Size +</button>
+                <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">Font Size -</button>
+                <button class="tablinks" onclick="fontIncrease()" id="fontIncrease">Font Size +</button>
                 <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
             </div>
         </div>

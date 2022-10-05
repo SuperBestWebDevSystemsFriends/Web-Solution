@@ -107,6 +107,12 @@ h1 {
     transition: 0.1s;
 }
 
+.tab button.disabled{
+    background-color: var(--clr-grey);
+    color: grey;
+    cursor: not-allowed;
+}
+
 .tabButton {
     background-color: inherit;
     width: 100%;

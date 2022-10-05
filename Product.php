@@ -34,20 +34,37 @@
             <div class="fproducts">
                 <h2>Featured Products</h2>
                 <div class="product">
-                    <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
-                    <h3>Dog Bed</h3>
-                    <p>$50</p>
-                    <p>Some text about the dog bed.</p>
+                <?php 
+                    require_once "dbconn.php";
+
+                    $sql = "SELECT * FROM Item;"
+
+                
+                    $results = mysqli_query($conn, $sql) or die(mysqli_error());
+                    if(mysqli_num_rows($results) > 0) {
+                        while($refined_result = mysqli_fetch_array($results)) {
+                            echo "<p><h3>".$refined_result['name']."</h3>".$refined_result['description']."</p>";
+                        }  
+                    }
+                    else {
+                        echo "No results";
+                    }
+                    mysqli_close($conn);
+
+                ?>
+
                 </div>
                 
             </div>
         </div>
 
+        <div class="whitespace"></div>
+
         <div class="tab qaction" id="quickaction">
             <div class="tabSpacer container">
                 <button class="tablinks" href="">Help</button>
-                <button class="tablinks" href="">Font Size -</button>
-                <button class="tablinks" href="">Font Size +</button>
+                <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">Font Size -</button>
+                <button class="tablinks" onclick="fontIncrease()" id="fontIncrease">Font Size +</button>
                 <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
             </div>
         </div>

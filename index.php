@@ -26,8 +26,8 @@
         <div class="content">
             <h1>SENIOR</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <form action="searchresults.php?searching=true" method="POST">
-                <input type="text" name="search" placeholder="Search..">
+            <form action="searchresults.php" method="POST">
+                <input type="text" name="search" placeholder="Search.."/>
                 <button type="submit" class="button2 searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
@@ -56,8 +56,8 @@
     <div class="tab qaction" id="quickaction">
         <div class="tabSpacer container">
             <button class="tablinks" href="">Help</button>
-            <button class="tablinks" href="">Font Size -</button>
-            <button class="tablinks" href="">Font Size +</button>
+            <button class="tablinks" onclick="fontDecrease()" id="fontDecrease">Font Size -</button>
+            <button class="tablinks" onclick="fontIncrease()" id="fontIncrease">Font Size +</button>
             <button class="tablinks" onclick="toggleMode()" id="modeToggle">Light/Dark Mode</button>
         </div>
     </div>
