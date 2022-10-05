@@ -26,23 +26,49 @@
 
         <div class="content">
             <h1>User Cart</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>
-            <form>
-                <input type="text" placeholder="Search..">
-                <button type="submit">Search</button>
-            </form>
-            <div class="fproducts">
-                <h2>Featured Products</h2>
-                <form action = "Checkout.php">
-                    <input class="button2" type="submit" value = "Checkout"/>
-                </form>
-                <div class="product">
-                    <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
-                    <h3>Dog Bed</h3>
-                    <p>$50</p>
-                    <p>Some text about the dog bed.</p>
-                </div>
+            <div class = "progress">
+                <span class = "progressContainer">
+                    <p>Cart</p>
+                    <div class= "progressBar active" id = "progressBar1"></div>
+                </span>
+                <span class = "progressContainer">
+                    <p>Shipping Details</p>
+                    <div class= "progressBar" id = "progressBar2"></div>
+                </span>
+                <span class = "progressContainer">
+                    <p>Payment</p>
+                    <div class= "progressBar" id = "progressBar3"></div>
+                </span>
+                <span class = "progressContainer">
+                    <p>Confirmation</p>
+                    <div class= "progressBar" id = "progressBar4"></div>
+                </span>
             </div>
+            <br>
+            <form action = "shipping.php">
+                    <input class="button2" type="submit" value = "Shipping Details"/>
+            </form>
+        </div>
+
+        <div class="cartItems">
+            <h3>Your Items</h3>
+                <?php
+                    require_once "dbconn.php";
+
+                    $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                    if($result = mysqli_query($conn, $sql)){
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<div class=\"confirmationItem\">";
+                            echo "<img class=\"itemImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                            echo "<p class=\"itemName\">" . $row["name"] . "</p>";
+                            echo "<p class=\"itemPrice\"> $" . $row["price"] . "</p>";
+                            echo "<p class=\"itemDesc\">" . $row["description"] . "</p>";
+                            echo "</div>";
+                        }
+                        mysqli_free_result($result);
+                    }
+                    mysqli_close($conn);
+                ?>
         </div>
         
         <div class="qactionWrapper">

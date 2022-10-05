@@ -26,7 +26,7 @@
 
         <div class="content">
             <h1>Product</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>hjkhkjh
+            <h2>The place for Old Dogs to buy outdoor shit</h2>
             <form>
                 <input type="text" placeholder="Search..">
                 <button type="submit">Search</button>
@@ -37,24 +37,23 @@
                 <?php 
                     require_once "dbconn.php";
 
-                    $sql = "SELECT * FROM Item i, User_ u WHERE i.seller = u.user_id;";
-                    
+                    // $sql = "SELECT image, i.name, price, description, username FROM Item i, User_ u WHERE i.seller = u.user_id;";
+                    $sql = "SELECT * FROM Item WHERE item_id = 1";
+
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)) {
                                 echo "<div class=\"confirmationItem\">";
-                                echo "<img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
-                                echo "<p>" . $row["name"] . "</p>";
-                                echo "<p> $" . $row["price"] . "</p>";
-                                echo "<p>" . $row["description"] . "</p>";
-                                echo "<p>" . $row["username"] . "</p>";
+                                echo "<img id=\"productImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                                echo "<p id=\"productName\">" . $row["name"] . "</p>";
+                                echo "<p id=\"productPrice\"> $" . $row["price"] . "</p>";
+                                echo "<p id=\"productDesc\">" . $row["description"] . "</p>";
                                 echo "</div>";
                             }  
                         }
                         mysqli_free_result($result);
                     }
                     else {
-                        echo mysqli_num_rows(mysqli_query($conn, $sql));
                         echo "No results";
                     }
                     mysqli_close($conn);

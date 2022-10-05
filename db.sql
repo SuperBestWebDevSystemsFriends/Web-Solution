@@ -6,7 +6,7 @@ CREATE DATABASE SBWDSF;
 
 USE SBWDSF;
 
-CREATE TABLE User_(
+CREATE TABLE User(
     user_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username varchar(100) NOT NULL,
     password varchar(100) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Item(
     description varchar(1000) NOT NULL,
     image longblob NOT NULL,
     seller int,
-    FOREIGN KEY (seller) REFERENCES User_(user_id)
+    FOREIGN KEY (seller) REFERENCES User(user_id)
     ON DELETE NO ACTION ON UPDATE CASCADE
 ) AUTO_INCREMENT = 1;
 
@@ -34,7 +34,7 @@ CREATE TABLE Cart(
     item_id int NOT NULL,
     quantity int NOT NULL,
     PRIMARY KEY (user_id, item_id),
-    FOREIGN KEY (user_id) REFERENCES User_(user_id)
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
     ON DELETE NO ACTION ON UPDATE CASCADE,
     FOREIGN KEY (item_id) REFERENCES Item(item_id)
     ON DELETE NO ACTION ON UPDATE CASCADE
@@ -46,7 +46,7 @@ CREATE TABLE Order_(
     item_id int NOT NULL,
     quantity int NOT NULL,
     PRIMARY KEY (order_id, user_id, item_id),
-    FOREIGN KEY (user_id) REFERENCES User_(user_id)
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
     ON DELETE NO ACTION ON UPDATE CASCADE,
     FOREIGN KEY (item_id) REFERENCES Item(item_id)
     ON DELETE NO ACTION ON UPDATE CASCADE
@@ -58,7 +58,7 @@ GRANT all privileges ON SBWDSF.User TO dbadmin@localhost;
 GRANT all privileges ON SBWDSF.Cart TO dbadmin@localhost;
 GRANT all privileges ON SBWDSF.Order TO dbadmin@localhost;
 
-INSERT INTO User_(user_id, username, password, fname, lname, email) VALUES(
+INSERT INTO User(user_id, username, password, fname, lname, email) VALUES(
 	1,
 	'Brett',
 	'bigrig32',
