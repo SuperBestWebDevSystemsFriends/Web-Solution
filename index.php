@@ -35,19 +35,34 @@
 
             <div class="featuredProducts">
                 <h2>Featured Products</h2>
-                <?php
-                    echo '<div class="featuredContainer">
-                            <div class="featuredImage">
-                                <img src="https://m.media-amazon.com/images/I/6161+3txTxL.jpg" alt="Dog Bed">
-                            </div>
-                            <div class="featuredDesc">
-                                <h3>Dog Bed</h3>
-                                <p>$50</p>
-                                <p>Some text about the dog bed.</p>
-                                <button href="" class="button2">View</button>
-                            </div>
-                        </div>';
+                <div class="products">
+                <?php 
+                    require_once "dbconn.php";
+
+                    $sql = "SELECT i.image, item_id, name, price, description, username FROM Item i, user u WHERE i.seller = u.user_id;";
+
+                    if($result = mysqli_query($conn, $sql)){
+                        if(mysqli_num_rows($result) > 0) {
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo "<div class=\"items\">";
+                                echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                                echo "<p>" . $row["name"] . "</p>";
+                                echo "<p> $" . $row["price"] . "</p>";
+                                echo "<p>" . $row["description"] . "</p>";
+                                echo "<label for=\"user_id\"></label>";
+                                echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
+                                echo "<p>" . $row["username"] . "</p></a>";
+                                echo "</div>";
+                            }  
+                        }
+                        mysqli_free_result($result);
+                    }
+                    else {
+                        echo "No results";
+                    }
+                    mysqli_close($conn);
                 ?>
+                </div>
             </div>
         </div>
 

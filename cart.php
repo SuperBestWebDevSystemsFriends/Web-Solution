@@ -55,14 +55,14 @@
                 <?php
                     require_once "dbconn.php";
 
-                    $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                    $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<div class=\"confirmationItem\">";
-                            echo "<img class=\"itemImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                            echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img class=\"itemImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
                             echo "<p class=\"itemName\">" . $row["name"] . "</p>";
                             echo "<p class=\"itemPrice\"> $" . $row["price"] . "</p>";
-                            echo "<p class=\"itemDesc\">" . $row["description"] . "</p>";
+                            echo "<p class=\"itemDesc\">" . $row["description"] . "</p></a>";
                             echo "</div>";
                         }
                         mysqli_free_result($result);

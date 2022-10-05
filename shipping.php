@@ -50,12 +50,14 @@
             </form>
         </div>
 
+        <form action="Checkout.php" method="get">
         <input type="text" id="custName" placeholder="Full Name" require = true;>
         <input type="text" id="address" placeholder="Postal Address" require = true;>
         <input type="text" id="city" placeholder="City" require = true;>
         <input type="text" id="state" placeholder="State" require = true;>
         <input type="text" id="ZIP" placeholder="Postal Code" require = true;>
         <input type="text" id="phNumber" placeholder="Ph number" require = true;>
+        </form>
         
         <div class="qactionWrapper">
             <div class="tab qaction" id="quickaction">

@@ -32,25 +32,21 @@
             </form>
             <div class="fproducts">
                 <h2>Featured Products</h2>
-                <form action = "product.php">
-                        <input class="button2" type="submit" value = "Product Dummy"/>
-                </form>
                 <div class="products">
                 <?php 
                     require_once "dbconn.php";
 
-                    // $sql = "SELECT image, i.name, price, description, username FROM Item i, User_ u WHERE i.seller = u.user_id;";
-                    $sql = "SELECT i.image, name, price, description, username FROM Item i, user u WHERE i.seller = u.user_id;";
+                    $sql = "SELECT i.image, item_id, name, price, description, username FROM Item i, user u WHERE i.seller = u.user_id;";
 
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)) {
                                 echo "<div class=\"items\">";
-                                echo "<img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                                echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
                                 echo "<p>" . $row["name"] . "</p>";
                                 echo "<p> $" . $row["price"] . "</p>";
                                 echo "<p>" . $row["description"] . "</p>";
-                                echo "<p>" . $row["username"] . "</p>";
+                                echo "<p>" . $row["username"] . "</p></a>";
                                 echo "</div>";
                             }  
                         }

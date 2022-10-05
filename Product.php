@@ -25,40 +25,48 @@
 
 
         <div class="content">
-            <h1>Product</h1>
+            <!-- <h1>Product</h1>
             <h2>The place for Old Dogs to buy outdoor shit</h2>
             <form>
                 <input type="text" placeholder="Search..">
                 <button type="submit">Search</button>
-            </form>
-            <div class="fproducts">
-                <h2>Featured Products</h2>
+            </form> -->
                 <div class="product">
                 <?php 
-                    require_once "dbconn.php";
+                require_once "dbconn.php";
 
-                    // $sql = "SELECT image, i.name, price, description, username FROM Item i, User_ u WHERE i.seller = u.user_id;";
-                    $sql = "SELECT * FROM Item WHERE item_id = 1";
+                $uri = $_SERVER['REQUEST_URI'];
+                $components = parse_url($uri);
+                parse_str($components["query"], $params);
+                $id = $params["id"];
+                $sql = "SELECT i.image AS itemImage, name, price, description, u.image AS userImage, user_id, username, email, phone FROM Item i, User u WHERE item_id = $id AND i.seller = u.user_id";
 
-                    if($result = mysqli_query($conn, $sql)){
-                        if(mysqli_num_rows($result) > 0) {
-                            while($row = mysqli_fetch_assoc($result)) {
-                                echo "<div class=\"confirmationItem\">";
-                                echo "<img id=\"productImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
-                                echo "<p id=\"productName\">" . $row["name"] . "</p>";
-                                echo "<p id=\"productPrice\"> $" . $row["price"] . "</p>";
-                                echo "<p id=\"productDesc\">" . $row["description"] . "</p>";
-                                echo "</div>";
-                            }  
-                        }
-                        mysqli_free_result($result);
+                if($result = mysqli_query($conn, $sql)){
+                    if(mysqli_num_rows($result) > 0) {
+                        $row = mysqli_fetch_assoc($result);
+                        echo "<div class=\"Item\">";
+                        echo "<img id=\"productImg\" src=\"data:image/jpeg;base64,".$row["itemImage"]."\"/>";
+                        echo "<p id=\"productName\">" . $row["name"] . "</p>";
+                        echo "<p id=\"productPrice\"> $" . $row["price"] . "</p>";
+                        echo "<p id=\"productDesc\">" . $row["description"] . "</p>";
+                        echo "</div>";
+
+                        echo "<div class=\"Seller\">";
+                        echo "<p> Seller: </p>";
+                        echo "<p id=\"sellerUsername\">" . $row["username"];
+                        echo "<img id=\"productImg\" src=\"data:image/jpeg;base64,". $row["userImage"]."\"/>";
+                        echo "<p id=\"sellerEmail\">" . $row["email"];
+                        echo "<p id=\"sellerPhone\">" . $row["phone"];
+                        echo "</div>";
+                        
                     }
-                    else {
-                        echo "No results";
-                    }
-                    mysqli_close($conn);
-                ?>
-                </div>
+                    mysqli_free_result($result);
+                }
+                else {
+                    echo "No results";
+                }
+                mysqli_close($conn);
+            ?>
             </div>
         </div>
 

@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/0c7165f7a1.js" crossorigin="anonymous"></script>
         <script src="scripts/modeManager.js" defer></script>
+        <script src="scripts/checkout.js" defer></script>
     </head>
     <body style="transition: 0s !important">
         <div class="tab" id="header">
@@ -47,25 +48,27 @@
             </div>
             <br>
             
-            <input type="text" id="cardNumber" placeholder="Card Number" require = true;>
-            <input type="text" id="cvv" placeholder="CVV" require = true;>
-            <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
-            <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
-            <!-- <input type="submit" id="placeOrder" value="Place Order for "> -->
-            <?php 
-            require_once "dbconn.php";
+            <div class="payment">
+                <input type="text" id="cardNumber" placeholder="Card Number" require = true;>
+                <input type="text" id="cvv" placeholder="CVV" require = true;>
+                <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
+                <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
+                <!-- <input type="submit" id="placeOrder" value="Place Order for "> -->
+                <?php 
+                require_once "dbconn.php";
 
-            $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
-            if($result = mysqli_query($conn, $sql)){
-                if(mysqli_num_rows($result) == 0){
-                    echo "<p> Your cart is empty. </p>";
+                $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                if($result = mysqli_query($conn, $sql)){
+                    if(mysqli_num_rows($result) == 0){
+                        echo "<p> Your cart is empty. </p>";
+                    }
+                    else{
+                        echo "<input type=\"button\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". mysqli_fetch_assoc($result)["Total"] ."\">";
+                    }
+                    mysqli_free_result($result);
                 }
-                else{
-                    echo "<input type=\"button\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". mysqli_fetch_assoc($result)["Total"] ."\">";
-                }
-                mysqli_free_result($result);
-            }
-            ?>
+                ?>
+            </div>
         </div>
 
         <div class="Summary">
@@ -100,14 +103,14 @@
         <div class="confirmation">
             <h3>Confirmation</h3>
                 <?php
-                    $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                    $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<div class=\"confirmationItem\">";
-                            echo "<img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                            echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
                             echo "<p>" . $row["name"] . "</p>";
                             echo "<p> $" . $row["price"] . "</p>";
-                            echo "<p>" . $row["description"] . "</p>";
+                            echo "<p>" . $row["description"] . "</p></a>";
                             echo "</div>";
                         }
                         mysqli_free_result($result);
