@@ -70,6 +70,10 @@
                     mysqli_close($conn);
                 ?>
         </div>
+
+        <div class="whitespace">
+
+        </div>
         
         <div class="qactionWrapper">
             <div class="tab qaction" id="quickaction">

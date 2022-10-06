@@ -59,6 +59,9 @@
         <input type="text" id="phNumber" placeholder="Ph number" require = true;>
         </form>
         
+        <div class="whitespace">
+        </div>
+
         <div class="qactionWrapper">
             <div class="tab qaction" id="quickaction">
                 <div class="tabSpacer container">

@@ -28,7 +28,7 @@
             <h1>Sell Item</h1>
             </div>
             <form action="" method="POST">
-                <h2>Item Information</h2>
+                <h2 class="selling">Item Information</h2>
                 <h3> Item Name*</h3>
                 <input type="text" name="itemName" placeholder="e.g Swiggity Swag" required>
 
@@ -45,7 +45,7 @@
                 </label>
                 <br><br>
 
-                <h2>Additional Information</h2>
+                <h2 class="selling">Additional Information</h2>
 
                     <h3> Item Condition (choose one)* </h3>
                     <span class="groupOptions">
