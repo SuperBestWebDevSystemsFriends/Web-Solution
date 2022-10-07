@@ -41,7 +41,7 @@
 
             $min_length = 1;
 
-            $sql = "SELECT * FROM Item WHERE name LIKE '%".$search."%'";
+            $sql = "SELECT item_id, i.image, i.name, price, username, description FROM Item i, user u WHERE i.seller = u.user_id AND name LIKE '%".$search."%'";
 
             if(strlen($search) >= $min_length) {
                 $search = htmlspecialchars($search);
