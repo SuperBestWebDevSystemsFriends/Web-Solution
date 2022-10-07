@@ -32,8 +32,6 @@
             <?php 
             require_once "dbconn.php";
 
-            
-            //$itemID = 1;
 
             $itemName = $_POST['itemName'];
 
@@ -41,9 +39,7 @@
 
             $itemDesc = $_POST['desc'];
 
-            $itemImage = base64_encode($_POST['image']);
-
-            echo "This is the image as b64: " . $itemImage . " and this is the raw upload: " . $_POST['image'];
+            $itemImage = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
 
             //$itemCondition = $_POST[''];
 
@@ -53,7 +49,7 @@
 
             
 
-            $sql = "INSERT INTO Item (name, description, seller, price, image) VALUES ('$itemName', '$itemDesc', '$itemSeller', '$itemPrice', '$itemImage')";
+            $sql = "INSERT INTO Item (name, description, seller, price, image) VALUES ('$itemName', '$itemDesc', '$itemSeller', $itemPrice, '$itemImage')";
 
             if(mysqli_query($conn, $sql)) {
                 echo "<h3> Item Successfully Added to Marketplace </h3>";
