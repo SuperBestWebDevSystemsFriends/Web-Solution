@@ -19,7 +19,10 @@ function hideConfirmation(){
 
 function showConfirmation(){
     document.getElementById("confirmation").style.display = "inline";
+    document.getElementById("progressBar3").classList.add('progressBar complete');
+    document.getElementById("progressBar3").classList.remove('progressBar active');
+    document.getElementById("progressBar4").classList.add('progressBar active');
+    document.getElementById("progressBar4").classList.remove('progressBar');
 }
-
 
 init();
