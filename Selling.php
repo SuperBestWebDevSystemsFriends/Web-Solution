@@ -40,7 +40,7 @@
 
                 <h3> Item Photo* </h3>
                 <label class="fileUpload">
-                    <input type="file" accept=".jpg, .jpeg" required>
+                    <input type="file" name="image" accept=".jpg, .jpeg" required>
                     <i class="fa fa-cloud-upload"></i> Choose an image to upload
                 </label>
                 <br><br>
