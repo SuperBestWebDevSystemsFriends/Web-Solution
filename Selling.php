@@ -68,7 +68,7 @@
                     
 
 
-                    <h3> Item Category (choose all that apply, at least one)* </h3>
+                    <h3> Item Category (choose any that apply, or none at all) </h3>
                     <span class="groupOptions">
                         <input class="check" type="checkbox" name="Camping" value=Camping id="Cam">
                         <label for="Cam" class="checkLabel">

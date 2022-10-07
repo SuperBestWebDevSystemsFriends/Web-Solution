@@ -39,17 +39,22 @@
 
             $itemDesc = $_POST['desc'];
 
+            $condition = $_POST['Condition'];
+
+            $category = 0;
+            $_POST['Camping'] ? $category +=4 : null;
+            $_POST['Caravaning'] ? $category += 2: null;
+            $_POST['Hiking'] ? $category += 1: null;
+
+            
+
             $itemImage = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-
-            //$itemCondition = $_POST[''];
-
-            //$itemCategory = $_POST[''];
 
             $itemSeller = 1;
 
             
 
-            $sql = "INSERT INTO Item (name, description, seller, price, image) VALUES ('$itemName', '$itemDesc', '$itemSeller', $itemPrice, '$itemImage')";
+            $sql = "INSERT INTO Item (name, description, seller, price, image, item_condition, category) VALUES ('$itemName', '$itemDesc', '$itemSeller', $itemPrice, '$itemImage', '$condition', $category)";
 
             if(mysqli_query($conn, $sql)) {
                 echo "<h3> Item Successfully Added to Marketplace </h3>";

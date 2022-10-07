@@ -25,6 +25,8 @@ CREATE TABLE Item(
     description varchar(1000) NOT NULL,
     image longblob NOT NULL,
     seller int,
+    item_condition varchar(12) NOT NULL,
+    category varbinary(3),
     FOREIGN KEY (seller) REFERENCES User(user_id)
     ON DELETE NO ACTION ON UPDATE CASCADE
 ) AUTO_INCREMENT = 1;
