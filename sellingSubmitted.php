@@ -31,6 +31,7 @@
 
             <?php 
             require_once "dbconn.php";
+
             
             //$itemID = 1;
 
@@ -40,7 +41,7 @@
 
             $itemDesc = $_POST['desc'];
 
-            //$itemImage = $_POST[''];
+            $itemImage = base64_encode($_POST['image']);
 
             //$itemCondition = $_POST[''];
 
@@ -50,7 +51,7 @@
 
             
 
-            $sql = "INSERT INTO Item (item_id, name, description, seller, price) VALUES ('$itemID', '$itemName', '$itemDesc', '$itemSeller', '$itemPrice')";
+            $sql = "INSERT INTO Item (name, description, seller, price, image) VALUES ('$itemName', '$itemDesc', '$itemSeller', '$itemPrice', '$itemImage')";
 
             if(mysqli_query($conn, $sql)) {
                 echo "<h3> Item Successfully Added to Marketplace </h3>";
@@ -60,14 +61,7 @@
             }
             
             //$sql = "INSERT INTO Item (item_id, name, price, description, image, seller) VALUES ('$itemID', '$itemName', '$itemPrice', '$itemDesc', '$itemImage')";
-
-            
-
             ?>
-
-    
-        
-
         </div>
         <div class="whitespace"></div>
 
