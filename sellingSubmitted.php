@@ -25,73 +25,45 @@
 
         <div class="content">
             <div>
-            <h1>Sell Item</h1>
+            <h1>Item Placed on Marketplace</h1>
             </div>
-            <form action="sellingSubmitted.php" method="POST">
-                <h2 class="selling">Item Information</h2>
-                <h3> Item Name*</h3>
-                <input type="text" name="itemName" placeholder="e.g Swiggity Swag" required>
+            
 
-                <h3> Item Price* </h3>
-                <p class="currencyInput">$  <input class = "currencyInput" type="number" min="1" step="any" placeholder="00.00" required></p>
+            <?php 
+            require_once "dbconn.php";
+            
+            $itemID = 1;
 
-                <h3> Item Description* </h3>
-                <input type="text" name="desc" size=100 required>
+            $itemName = $_POST['itemName'];
 
-                <h3> Item Photo* </h3>
-                <label class="fileUpload">
-                    <input type="file" accept=".jpg, .jpeg" required>
-                    <i class="fa fa-cloud-upload"></i> Choose an image to upload
-                </label>
-                <br><br>
+            $itemPrice = 10;
 
-                <h2 class="selling">Additional Information</h2>
+            $itemDesc = $_POST['desc'];
 
-                    <h3> Item Condition (choose one)* </h3>
-                    <span class="groupOptions">
-                        <input class="radio" type="Radio" name="Condition" value="New" id="N"> 
-                        <label for="N" class="radioLabel">
-                            New
-                        </label>
-                        <br>
-                        <input class="radio" type="Radio" name="Condition" value="Used" id="U"> 
-                        <label for="U" class="radioLabel">
-                            Used
-                        </label>
-                        <br>
-                        <input class="radio" type="Radio" name="Condition" value="Love Needed" id="LN">
-                        <label for="LN" class="radioLabel">
-                            Love Needed
-                        </label> 
-                    </span>
+            //$itemImage = $_POST[''];
 
-                    
+            //$itemCondition = $_POST[''];
 
+            //$itemCategory = $_POST[''];
 
-                    <h3> Item Category (choose all that apply, at least one)* </h3>
-                    <span class="groupOptions">
-                        <input class="check" type="checkbox" name="Camping" value=Camping id="Cam">
-                        <label for="Cam" class="checkLabel">
-                            Camping
-                        </label>
-                        <br>
-                        <input class="check" type="checkbox" name="Caravaning" value=Caravaning id="Car"> 
-                        <label for="Car" class="checkLabel">
-                            Caravaning
-                        </label>
-                        <br>
-                        <input class="check" type="checkbox" name="Hiking" value=Hiking id="H"> 
-                        <label for="H" class="checkLabel">
-                            Hiking
-                        </label>
-                    </span>
-                <br><br>
-                <div>
-                    <input type="submit" value="Add to Marketplace">
-                </div>
-            </form>
+            $itemSeller = 1;
 
             
+
+            $sql = "INSERT INTO Item (item_id, name, description, seller, price) VALUES ('$itemID', '$itemName', '$itemDesc', '$itemSeller', '$itemPrice')";
+
+            if(mysqli_query($conn, $sql)) {
+                echo "<h3> Item Successfully Added to Marketplace </h3>";
+            } else {
+                echo "ERROR: Something Went Wrong";
+                mysqli_error($conn);
+            }
+            
+            //$sql = "INSERT INTO Item (item_id, name, price, description, image, seller) VALUES ('$itemID', '$itemName', '$itemPrice', '$itemDesc', '$itemImage')";
+
+            
+
+            ?>
 
     
         
