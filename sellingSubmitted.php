@@ -32,7 +32,7 @@
             <?php 
             require_once "dbconn.php";
             
-            $itemID = 1;
+            //$itemID = 1;
 
             $itemName = $_POST['itemName'];
 
