@@ -37,11 +37,13 @@
 
             $itemName = $_POST['itemName'];
 
-            $itemPrice = 10;
+            $itemPrice = $_POST['price'];
 
             $itemDesc = $_POST['desc'];
 
             $itemImage = base64_encode($_POST['image']);
+
+            echo "This is the image as b64: " . $itemImage . " and this is the raw upload: " . $_POST['image'];
 
             //$itemCondition = $_POST[''];
 

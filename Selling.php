@@ -33,14 +33,14 @@
                 <input type="text" name="itemName" placeholder="e.g Swiggity Swag" required>
 
                 <h3> Item Price* </h3>
-                <p class="currencyInput">$  <input class = "currencyInput" type="number" min="1" step="any" placeholder="00.00" required></p>
+                <p class="currencyInput">$  <input class = "currencyInput" type="number" min="1" step="any" name="price" placeholder="00.00" required></p>
 
                 <h3> Item Description* </h3>
                 <input type="text" name="desc" size=100 required>
 
                 <h3> Item Photo* </h3>
                 <label class="fileUpload">
-                    <input type="file" name="image" accept=".jpg, .jpeg" required>
+                    <input type="file" name="image" accept="image/jpg, image/jpeg" required>
                     <i class="fa fa-cloud-upload"></i> Choose an image to upload
                 </label>
                 <br><br>
