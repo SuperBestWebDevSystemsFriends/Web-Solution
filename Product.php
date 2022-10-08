@@ -81,8 +81,22 @@
                 parse_str($components["query"], $params);
                 $id = $params["id"];
                 $quantity = $_POST['quantity'];
-                $sql = "INSERT INTO Cart (user_id, item_id, quantity) VALUES ('$user_id', '$id', '$quantity')";
+                
+                $sqlCart = "SELECT item_id, quantity FROM cart WHERE item_id = $id;";
 
+                $sqlDelete = "DELETE FROM cart WHERE item_id = $id;";
+                $stmt = mysqli_prepare($conn, $sqlDelete);
+
+                if($result = mysqli_query($conn, $sqlCart)) { //check if item exists already in cart
+                    $row = mysqli_fetch_assoc($result);
+                    $quantity += $row['quantity'];
+                    mysqli_execute($stmt);
+                    //add new quantity to existing quantity
+                }// item doesn't exist in cart, therefore use normal SQL statement
+                
+                $sql = "INSERT INTO Cart (user_id, item_id, quantity) VALUES ('$user_id', '$id', '$quantity')";
+                
+                
                 if(mysqli_query($conn, $sql)) {
                     echo "<h3> Item Successfully Added to Cart </h3>";
                 } else {
