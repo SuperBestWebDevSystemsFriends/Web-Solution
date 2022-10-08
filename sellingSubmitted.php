@@ -36,9 +36,9 @@
             $itemDesc = $_POST['desc'];
             $condition = $_POST['Condition'];
             $category = 0;
-            $_POST['Camping'] ? $category +=4 : null;
-            $_POST['Caravaning'] ? $category += 2: null;
-            $_POST['Hiking'] ? $category += 1: null; 
+            isset($_POST['Camping']) ? $category +=4 : null;
+            isset($_POST['Caravaning']) ? $category += 2: null;
+            isset($_POST['Hiking']) ? $category += 1: null; 
             $itemImage = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
             $itemSeller = 1;
 
