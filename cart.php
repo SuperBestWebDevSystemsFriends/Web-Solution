@@ -59,7 +59,9 @@
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<div class=\"confirmationItem\">";
-                            echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img class=\"itemImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
+                            echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\">";
+                            echo "<p class=\"quantity\">" . $row["quantity"] . "</p>";
+                            echo "<img class=\"itemImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
                             echo "<p class=\"itemName\">" . $row["name"] . "</p>";
                             echo "<p class=\"itemPrice\"> $" . $row["price"] . "</p>";
                             echo "<p class=\"itemDesc\">" . $row["description"] . "</p></a>";

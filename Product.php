@@ -74,19 +74,13 @@
             </form>
 
             <?php 
-
+                if($_POST) {
                 $user_id = 1;
-
                 $uri = $_SERVER['REQUEST_URI'];
                 $components = parse_url($uri);
                 parse_str($components["query"], $params);
                 $id = $params["id"];
-
-                
                 $quantity = $_POST['quantity'];
-            
-
-
                 $sql = "INSERT INTO Cart (user_id, item_id, quantity) VALUES ('$user_id', '$id', '$quantity')";
 
                 if(mysqli_query($conn, $sql)) {
@@ -95,7 +89,7 @@
                     echo "ERROR: Something Went Wrong";
                     mysqli_error($conn);
                 }
-
+            }
 
             mysqli_close($conn);
             ?>
