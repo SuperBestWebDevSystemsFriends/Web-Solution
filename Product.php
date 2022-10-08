@@ -65,8 +65,45 @@
                 else {
                     echo "No results";
                 }
-                mysqli_close($conn);
+                
             ?>
+
+            <form action="" method="POST">
+            <p>Quantity  <input type="number" name="quantity" min="1" step="1" required></p>
+            <input type="submit" value="Add to Cart">
+            </form>
+
+            <?php 
+
+                $user_id = 1;
+
+                $uri = $_SERVER['REQUEST_URI'];
+                $components = parse_url($uri);
+                parse_str($components["query"], $params);
+                $id = $params["id"];
+
+                
+                $quantity = $_POST['quantity'];
+            
+
+
+                $sql = "INSERT INTO Cart (user_id, item_id, quantity) VALUES ('$user_id', '$id', '$quantity')";
+
+                if(mysqli_query($conn, $sql)) {
+                    echo "<h3> Item Successfully Added to Cart </h3>";
+                } else {
+                    echo "ERROR: Something Went Wrong";
+                    mysqli_error($conn);
+                }
+
+
+            mysqli_close($conn);
+            ?>
+
+
+
+
+
             </div>
         </div>
 
