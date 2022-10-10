@@ -565,3 +565,8 @@ img:before {
     width: 50px;
     background-image: url(image-placeholder.jpg);
 }
+
+#confirmationTick{
+    color: var(--clr-accent2);
+    font-size: 50px;
+}

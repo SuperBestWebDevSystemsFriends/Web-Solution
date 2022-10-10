@@ -54,29 +54,12 @@
                 <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
                 <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
                 <br>
-                <!-- <input type="submit" id="placeOrder" value="Place Order for "> -->
-                <?php 
-                require_once "dbconn.php";
-
-                $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
-                if($result = mysqli_query($conn, $sql)){
-                    if(mysqli_num_rows($result) == 0){
-                        echo "<p> Your cart is empty. </p>";
-                    }
-                    else{
-                        $sumTotal = mysqli_fetch_assoc($result)['Total'] + 15.99;
-                        echo "<input type=\"button\" onlick=\"hidePayment()\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". $sumTotal ."\">";
-                    }
-                    mysqli_free_result($result);
-                }
-                ?>
-            </div>
-        </div>
-
-        <div class="Summary">
+                <div class="Summary">
             <h4>ORDER SUMMARY</h4>
 
             <?php
+                require_once "dbconn.php";
+
                 $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                 $sqlTotal = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
                 
@@ -101,22 +84,52 @@
             ?>
 
         </div>
+                <?php 
+
+                $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                if($result = mysqli_query($conn, $sql)){
+                    if(mysqli_num_rows($result) == 0){
+                        echo "<p> Your cart is empty. </p>";
+                    }
+                    else{
+                        $sumTotal = mysqli_fetch_assoc($result)['Total'] + 15.99;
+                        echo "<input type=\"button\" onlick=\"hidePayment()\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". $sumTotal ."\">";
+                    }
+                    mysqli_free_result($result);
+                }
+                ?>
+            </div>
+        </div>
+
+    
 
         <div class="confirmation" id="confirmation">
-            <h3>Confirmation</h3>
+            <i class="fa-solid fa-circle-check" id="confirmationTick"></i>
+            <h2>Confirmation</h2>
+            <h3>Congratulations! Your order has been placed.</h3>
                 <?php
                     $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
-                            echo "<div class=\"confirmationItem\">";
-                            echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
-                            echo "<p>" . $row["name"] . "</p>";
-                            echo "<p> $" . $row["price"] . "</p>";
-                            echo "<p>" . $row["description"] . "</p></a>";
-                            echo "</div>";
+                            echo "<div class=\"items\">";
+                            echo "<div class='itemImage'><a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/></a></div>";
+                            echo "<div class='itemInfo'><a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><h2 class='name'>" . $row["name"] . "</h2>";
+
+                            echo "<h3 class='price'> 
+                                    <p class=\"quantity\">" . $row["quantity"] . " x </p> $"
+                                    . $row["price"] 
+                                    . "</h3>";
+                            echo "<p class='desc'>" . $row["description"] . "</p>";
+                            echo "<label for=\"user_id\"></label>";
+                            echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
+                            echo "<p class='user'>" . $row["username"] . "</p></a>";
+                            echo "<a class='button button2' href='Product.php?id=". $row["item_id"]."'>View Item</a></div>";
+                            echo "</div><br>";
                         }
                         mysqli_free_result($result);
                     }
+                    $sqlDelete ="DELETE FROM Cart WHERE user_id = 1";
+                    mysqli_query($conn, $sqlDelete);
                     mysqli_close($conn);
                 ?>
         </div>
