@@ -1,10 +1,9 @@
 :root {
 
-    --ff-primary: Arial, Helvetica, sans-serif;
-    --ff-secondary: Arial, Helvetica, sans-serif;
-
+    --ff-primary:  Helvetica, Arial, sans-serif;
+    --ff-secondary: 'Arial Black', Arial, sans-serif;
     --fw-thin: 100;
-    --fw-regular: 400;
+    --fw-regular: 100;
     --fw-medium: 500;
     --fw-bold: 700;
 
@@ -45,7 +44,7 @@ input{
 }
 
 h2{
-    font-family: var(--ff-primary);
+    font-family: var(--ff-secondary);
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
 }
