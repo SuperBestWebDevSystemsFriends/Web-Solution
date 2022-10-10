@@ -51,8 +51,8 @@
             <h3>Your Items</h3>
                 <?php
                     require_once "dbconn.php";
-
-                    $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                    
+                    $sql = "SELECT name, i.item_id, quantity, username, price, i.image, description, (quantity*price) AS 'sum' FROM Cart c, Item i, user u WHERE c.item_id = i.item_id AND c.user_id = 1 AND u.user_id = i.seller";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<div class=\"items\">";
@@ -68,6 +68,13 @@
                             echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
                             echo "<p class='user'>" . $row["username"] . "</p></a>";
                             echo "<a class='button button2' href='Product.php?id=". $row["item_id"]."'>View Item</a></div>";
+                            echo "<form action=\"cart.php\" method=\"POST\"> <input type=\"submit\" id = \"removeCart\" name=\"item\" value=\"". $row["item_id"] ."\"></form>";
+                            if ($_POST){
+                                $sqlDelete = "DELETE FROM cart WHERE user_id = 1 AND item_id =" . $_POST['item'] . ";";
+                                $stmt = mysqli_prepare($conn, $sqlDelete);
+                                mysqli_execute($stmt);
+                                echo "<meta http-equiv='refresh' content='0'>";
+                            }
                             echo "</div><br>";
                         }
                         mysqli_free_result($result);
