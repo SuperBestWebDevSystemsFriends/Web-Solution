@@ -88,6 +88,12 @@ input[type = "file"]{
     width: 47.5%;
     background-color: white;
     color: grey;
+    transition: 0.2s ease-in-out;
+}
+
+input[type = "file"]:hover{
+    padding: 15px;
+    border: 3px solid var(--clr-accent-light);
 }
 
 input[type = "text"]{
@@ -104,9 +110,9 @@ input[type="text"]:focus{
     border: 3px solid var(--clr-accent);
 }
 
-.fileUpload>input[type = "file"]{
+/* .fileUpload>input[type = "file"]{
     display: none;
-}
+} */
 
 .fileUpload{
     background-color: white;

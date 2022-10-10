@@ -42,6 +42,7 @@
                     $sql = "SELECT i.image, item_id, name, price, description, username FROM Item i, user u WHERE i.seller = u.user_id;";
 
                     if($result = mysqli_query($conn, $sql)){
+                        $i = 0;
                         if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)) {
                                 echo "<div class=\"items\">";
@@ -53,6 +54,10 @@
                                 echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
                                 echo "<p>" . $row["username"] . "</p></a>";
                                 echo "</div>";
+                                $i++;
+                                if($i == 3) {
+                                    break;
+                                }
                             }  
                         }
                         mysqli_free_result($result);

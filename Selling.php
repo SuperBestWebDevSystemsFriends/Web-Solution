@@ -39,10 +39,7 @@
                 <input type="text" name="desc" size=100 required>
 
                 <h3> Item Photo* </h3>
-                <label class="fileUpload">
-                    <input type="file" name="image" accept="image/jpg, image/jpeg" required>
-                    <i class="fa fa-cloud-upload"></i> Choose an image to upload
-                </label>
+                <input type="file" name="image" accept="image/jpg, image/jpeg" required>
                 <br><br>
 
                 <h2 class="selling">Additional Information</h2>
