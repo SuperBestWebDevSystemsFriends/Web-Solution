@@ -45,9 +45,6 @@
                 </span>
             </div>
             <br>
-            <form action = "Checkout.php">
-                    <input class="button2" type="submit" value = "Checkout"/>
-            </form>
         </div>
 
         <form action="Checkout.php" method="get">
@@ -59,6 +56,10 @@
         <input type="text" id="phNumber" placeholder="Ph number" require = true;>
         </form>
         
+        <form action = "Checkout.php">
+                    <input class="button2" type="submit" value = "Checkout"/>
+            </form>
+
         <div class="whitespace">
         </div>
 

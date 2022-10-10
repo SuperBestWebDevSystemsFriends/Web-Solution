@@ -53,6 +53,7 @@
                 <input type="text" id="cvv" placeholder="CVV" require = true;>
                 <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
                 <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
+                <br>
                 <!-- <input type="submit" id="placeOrder" value="Place Order for "> -->
                 <?php 
                 require_once "dbconn.php";

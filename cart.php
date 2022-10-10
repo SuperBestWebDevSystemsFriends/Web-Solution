@@ -45,9 +45,6 @@
                 </span>
             </div>
             <br>
-            <form action = "shipping.php">
-                    <input class="button2" type="submit" value = "Shipping Details"/>
-            </form>
         </div>
 
         <div class="cartItems">
@@ -58,20 +55,48 @@
                     $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
-                            echo "<div class=\"confirmationItem\">";
-                            echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\">";
-                            echo "<p class=\"quantity\">" . $row["quantity"] . "</p>";
-                            echo "<img class=\"itemImg\" src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
-                            echo "<p class=\"itemName\">" . $row["name"] . "</p>";
-                            echo "<p class=\"itemPrice\"> $" . $row["price"] . "</p>";
-                            echo "<p class=\"itemDesc\">" . $row["description"] . "</p></a>";
-                            echo "</div>";
+                            echo "<div class=\"items\">";
+                            echo "<div class='itemImage'><a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/></a></div>";
+                            echo "<div class='itemInfo'><a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><h2 class='name'>" . $row["name"] . "</h2>";
+
+                            echo "<h3 class='price'> 
+                                    <p class=\"quantity\">" . $row["quantity"] . " x </p> $"
+                                    . $row["price"] 
+                                    . "</h3>";
+                            echo "<p class='desc'>" . $row["description"] . "</p>";
+                            echo "<label for=\"user_id\"></label>";
+                            echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
+                            echo "<p class='user'>" . $row["username"] . "</p></a>";
+                            echo "<a class='button button2' href='Product.php?id=". $row["item_id"]."'>View Item</a></div>";
+                            echo "</div><br>";
                         }
                         mysqli_free_result($result);
                     }
-                    mysqli_close($conn);
+
                 ?>
         </div>
+        <?php 
+            $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+            if($result = mysqli_query($conn, $sql)){
+                if(mysqli_num_rows($result) == 0){
+                    echo "<p> Your cart is empty. </p>";
+                    echo"        <form action = 'browse.php'>
+                    <input class='button2' type='submit' value = 'Browse'/>
+                    </form>";
+                }
+                else{
+                    $sumTotal = mysqli_fetch_assoc($result)['Total'];
+                    echo "<h2>Subtotal: $". $sumTotal ."</h2> <p>Shipping calculated at next step</p>";
+                    echo"        <form action = 'shipping.php'>
+                        <input class='button2' type='submit' value = 'Continue'/>
+                        </form>";
+                }
+                mysqli_free_result($result);
+            }
+            mysqli_close($conn);
+        ?>
+
+
 
         <div class="whitespace">
 
