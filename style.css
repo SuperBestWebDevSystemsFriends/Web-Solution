@@ -179,7 +179,7 @@ h1 {
     font-size: var(--fs-h1);
     font-weight: var(--fw-bold);
     font-family: var(--ff-secondary);
-    margin: 40px 0px 10px 0px;
+    margin: 30px 0px 10px 0px;
 }
 
 .tab {
@@ -553,6 +553,15 @@ a.button {
     flex-basis: 50%;
     order: 1;
     padding: 10px 20px;
+}
+
+.itemInfo>a>h2.name{
+    font-family: var(--ff-primary);
+}
+
+
+.itemInfo>h2.name{
+    font-family: var(--ff-primary);
 }
 
 .itemInfo>a>h3.price{

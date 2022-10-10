@@ -49,14 +49,14 @@
             <br>
             
             <div class="payment" id="payment">
-                <input type="text" id="cardNumber" placeholder="Card Number" require = true;>
+                <input type="text" id="cardNumber" placeholder="Card Number" required>
                 <br>
                 <span>
                 <input type="text" id="cvv" placeholder="CVV" require = true;>
-                <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
+                <input type="text" id="expDate" placeholder="Expiration Date" required>
                 </span>
                 <br>
-                <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
+                <input type="text" id="cardName" placeholder="Cardholder Name" required>
                 <br>
                 <div class="Summary">
             <h4>ORDER SUMMARY</h4>
