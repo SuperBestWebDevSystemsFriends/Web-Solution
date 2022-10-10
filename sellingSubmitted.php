@@ -40,7 +40,7 @@
             isset($_POST['Caravaning']) ? $category += 2: null;
             isset($_POST['Hiking']) ? $category += 1: null; 
             $itemImage = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-            $itemSeller = 1;
+            $itemSeller = 2;
 
             $sql = "INSERT INTO Item (name, description, seller, price, image, item_condition, category) VALUES ('$itemName', '$itemDesc', '$itemSeller', $itemPrice, '$itemImage', '$condition', $category)";
 
