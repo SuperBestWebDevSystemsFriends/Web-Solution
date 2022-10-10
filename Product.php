@@ -44,20 +44,21 @@
                 if($result = mysqli_query($conn, $sql)){
                     if(mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_assoc($result);
-                        echo "<div class=\"Item\">";
-                        echo "<img id=\"productImg\" src=\"data:image/jpeg;base64,".$row["itemImage"]."\"/>";
-                        echo "<p id=\"productName\">" . $row["name"] . "</p>";
-                        echo "<p id=\"productPrice\"> $" . $row["price"] . "</p>";
-                        echo "<p id=\"productDesc\">" . $row["description"] . "</p>";
-                        echo "</div>";
-
-                        echo "<div class=\"Seller\">";
+                        echo "<h1 class='name'>" . $row["name"] . "</h1>";
+                        echo "<div class=\"items\">";
+                        echo "<div class='fullImage'><img src=\"data:image/jpeg;base64,".$row["itemImage"]."\"/></div>";
+                        echo "<div class=\"itemSeller\">";
                         echo "<p> Seller: </p>";
+                        echo "<img id=\"userImg\" src=\"data:image/jpeg;base64,". $row["userImage"]."\"/>";
                         echo "<p id=\"sellerUsername\">" . $row["username"];
-                        echo "<img id=\"productImg\" src=\"data:image/jpeg;base64,". $row["userImage"]."\"/>";
-                        echo "<p id=\"sellerEmail\">" . $row["email"];
+                        echo "<a href='mailto:".$row["email"]."'><p id=\"sellerEmail\">" . $row["email"]."</a>";
                         echo "<p id=\"sellerPhone\">" . $row["phone"];
                         echo "</div>";
+                        echo "<div class='itemInfo'>";
+                        echo "<h3 class='price'> $" . $row["price"] . "</h3>";
+                        echo "<p class='desc'>" . $row["description"] . "</p>";
+                        echo "</div>";
+                        echo "</div><br>";
                         
                     }
                     mysqli_free_result($result);
@@ -69,7 +70,7 @@
             ?>
 
             <form action="" method="POST">
-            <p>Quantity  <input type="number" name="quantity" min="1" step="1" required></p>
+            <p>Quantity  <input type="number" name="quantity" min="1" step="1" value='1' required></p>
             <input type="submit" value="Add to Cart">
             </form>
 

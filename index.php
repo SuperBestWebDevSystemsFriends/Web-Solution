@@ -25,7 +25,7 @@
 
         <div class="content">
             <h1>SENIOR</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>
+            <h3>Shopping and Exchange for (grey) Nomads Interested in Outdoor Recreation</h3>
             <form action="searchresults.php" method="POST">
                 <input type="text" name="search" placeholder="Search.."/>
                 <button type="submit" class="button2 searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>

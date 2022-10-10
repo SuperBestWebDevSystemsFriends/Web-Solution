@@ -180,6 +180,7 @@ h1 {
     font-size: var(--fs-h1);
     font-weight: var(--fw-bold);
     font-family: var(--ff-secondary);
+    margin: 40px 0px 10px 0px;
 }
 
 .tab {
@@ -522,6 +523,28 @@ a.button {
     order: 2;
 }
 
+.itemImage>img{
+    border-radius: 25px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    flex-basis: 70%;
+    order: 2;
+}
+
+.fullImage{
+    display: flex;
+}
+
+.fullImage>img{
+    border-radius: 25px;
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+    flex-basis: 70%;
+    order: 2;
+}
+
 .itemInfo>a{
     text-decoration: none;
     color: var(--clr-dark);
@@ -549,6 +572,14 @@ a.button {
     color: white;
 }
 
+.itemInfo>h3.price{
+    color: var(--clr-accent-dark);
+}
+
+.itemInfo>p.user{
+    color: var(--clr-accent-dark);
+}
+
 .quantity{
     display: inline;
 }
@@ -569,4 +600,15 @@ img:before {
 #confirmationTick{
     color: var(--clr-accent2);
     font-size: 50px;
+}
+
+.itemSeller{
+    padding: 30px;
+}
+
+#userImg{
+    border-radius: 1000px;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
 }

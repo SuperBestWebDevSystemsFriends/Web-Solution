@@ -30,7 +30,7 @@
             <form action="sellingSubmitted.php" method="POST" enctype="multipart/form-data">
                 <h2 class="selling">Item Information</h2>
                 <h3> Item Name*</h3>
-                <input type="text" name="itemName" placeholder="e.g Swiggity Swag" required>
+                <input type="text" name="itemName" required>
 
                 <h3> Item Price* </h3>
                 <p class="currencyInput">$  <input class = "currencyInput" type="number" name="price" min="1" step="any" placeholder="00.00" required></p>
