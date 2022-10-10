@@ -14,6 +14,7 @@
     --clr-accent: #0071ce;
     --clr-accent-dark: #004b87;
     --clr-accent-light: #b3d7f5;
+    --clr-accent2: #57c93b;
 
     --fs-h1: 3.7rem;
     --fs-h2: 1.5rem;
@@ -328,6 +329,10 @@ a:visited{
     color: var(--clr-accent-dark);
 }
 
+a.button:visited{
+    color: white;
+}
+
 .whitespace {
     height: 80px;
 }
@@ -362,7 +367,6 @@ img {
     background-color: var(--clr-accent);
     color: white;
     border: none;
-    padding: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -491,4 +495,62 @@ h2.selling{
     border-bottom: var(--clr-dark) 1px solid;
     display: inline-flex;
     transition: 0.3s ease-in-out;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+}
+
+.items{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 75%;
+}
+
+.itemImage>a>img{
+    border-radius: 25px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    flex-basis: 70%;
+    order: 2;
+}
+
+.itemInfo>a{
+    text-decoration: none;
+    color: var(--clr-dark);
+}
+
+.itemInfo{
+    flex-basis: 50%;
+    order: 1;
+    padding: 10px;
+}
+
+.itemInfo>a>h3.price{
+    color: var(--clr-accent-dark);
+}
+
+.itemInfo>a>p.user{
+    color: var(--clr-accent-dark);
+}
+
+.items{
+    padding: 20px 0px;
+}
+
+img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-image: url(image-placeholder.jpg);
 }

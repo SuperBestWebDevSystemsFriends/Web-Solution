@@ -46,14 +46,15 @@
                         if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)) {
                                 echo "<div class=\"items\">";
-                                echo "<a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/>";
-                                echo "<p>" . $row["name"] . "</p>";
-                                echo "<p> $" . $row["price"] . "</p>";
-                                echo "<p>" . $row["description"] . "</p>";
+                                echo "<div class='itemImage'><a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><img src=\"data:image/jpeg;base64,".$row["image"]."\"/></a></div>";
+                                echo "<div class='itemInfo'><a class=\"productLink\" href=\"Product.php?id=". $row["item_id"]."\"><h2 class='name'>" . $row["name"] . "</h2>";
+                                echo "<h3 class='price'> $" . $row["price"] . "</h3>";
+                                echo "<p class='desc'>" . $row["description"] . "</p>";
                                 echo "<label for=\"user_id\"></label>";
                                 echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
-                                echo "<p>" . $row["username"] . "</p></a>";
-                                echo "</div>";
+                                echo "<p class='user'>" . $row["username"] . "</p></a>";
+                                echo "<a class='button button2' href='Product.php?id=". $row["item_id"]."'>View Item</a></div>";
+                                echo "</div><br>";
                                 $i++;
                                 if($i == 3) {
                                     break;

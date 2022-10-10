@@ -9,10 +9,10 @@ with open(input_file, "rb") as image_file:
 
 encoded_string = encoded_string.decode('utf-8')
 
-print("Base 64 ended string for image:\n")
-
-print(encoded_string)
-
 output = open("output.txt","w")
 output.write(str(encoded_string))
 output.close()
+
+print("Base 64 ended string for image:\n")
+
+print(encoded_string)
