@@ -50,8 +50,12 @@
             
             <div class="payment" id="payment">
                 <input type="text" id="cardNumber" placeholder="Card Number" require = true;>
+                <br>
+                <span>
                 <input type="text" id="cvv" placeholder="CVV" require = true;>
                 <input type="text" id="expDate" placeholder="Expiration Date" require = true;>
+                </span>
+                <br>
                 <input type="text" id="cardName" placeholder="Cardholder Name" require = true;>
                 <br>
                 <div class="Summary">

@@ -59,7 +59,14 @@
                         echo "<p class='desc'>" . $row["description"] . "</p>";
                         echo "</div>";
                         echo "</div><br>";
+                        echo "<form action=\"\" method=\"POST\"><span class='quantityContainer'> <p>Quantity  <input class='quantity' type=\"number\" name=\"quantity\" min=\"1\" step=\"1\" value='1' required></p> <input type=\"submit\" value=\"Add to Cart\"></span> </form>";
                         
+                    }
+                    else{
+                        echo "<h1>Oops! This product does not exist.</h1>";
+                        echo"        <form action = 'index.php'>
+                    <input class='button2' type='submit' value = 'Go Home'/>
+                    </form>";
                     }
                     mysqli_free_result($result);
                 }
@@ -68,11 +75,6 @@
                 }
                 
             ?>
-
-            <form action="" method="POST">
-            <p>Quantity  <input type="number" name="quantity" min="1" step="1" value='1' required></p>
-            <input type="submit" value="Add to Cart">
-            </form>
 
             <?php 
                 if($_POST) {

@@ -612,3 +612,24 @@ img:before {
     width: 100px;
     height: 100px;
 }
+
+.quantity{
+    display: inline !important;
+    width: 10% !important;
+    margin-right: 2%;
+}
+
+span>p{
+    display: inline;
+}
+
+.quantityContainer>input{
+    width: 20% !important;
+}
+
+#cvv{
+    width:20%;
+}
+#expDate{
+    width:30%;
+}
