@@ -48,7 +48,7 @@
                         echo "<div class=\"items\">";
                         echo "<div class='fullImage'><img src=\"data:image/jpeg;base64,".$row["itemImage"]."\"/></div>";
                         echo "<div class=\"itemSeller\">";
-                        echo "<p> Seller: </p>";
+                        echo "<h3> Seller: </h3>";
                         echo "<img id=\"userImg\" src=\"data:image/jpeg;base64,". $row["userImage"]."\"/>";
                         echo "<p id=\"sellerUsername\">" . $row["username"];
                         echo "<a href='mailto:".$row["email"]."'><p id=\"sellerEmail\">" . $row["email"]."</a>";
