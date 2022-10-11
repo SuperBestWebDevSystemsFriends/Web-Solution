@@ -24,7 +24,6 @@
             </div>
         </div>
 
-
         <div class="content">
             <h1>Checkout</h1>
 
@@ -49,27 +48,35 @@
             <br>
             
             <div class="payment" id="payment">
-                <input type="text" id="cardNumber" placeholder="Card Number" required>
+                <form action='', >
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" required>
                 <br>
                 <span>
-                <input type="text" id="cvv" placeholder="CVV" require = true;>
-                <input type="text" id="expDate" placeholder="Expiration Date" required>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" require = true;>
+                <input type="text" id="expDate" name="expDate" placeholder="Expiration Date" required>
                 </span>
                 <br>
-                <input type="text" id="cardName" placeholder="Cardholder Name" required>
+                <input type="text" id="cardName" name="cardName" placeholder="Cardholder Name" required>
                 <br>
                 <div class="Summary">
             <h4>ORDER SUMMARY</h4>
 
+            <!-- Add PO to DB -->
             <?php
                 require_once "dbconn.php";
 
+                $fullName = explode(' ', $_POST['fullName']);
+                $firstName = $fullName[0];
+                $lastName = $fullName[1];
+         
                 $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
-                $sqlTotal = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                $sqlTotal = "SELECT SUM(price*quantity) AS 'Total', item_id FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
                 
                 if($result = mysqli_query($conn, $sql)){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<p class=\"summaryItems\">" . $row["quantity"] . "x " . $row["name"] . " $" . $row["sum"] . "</p>";
+
+                        $sqlPO = "INSERT INTO Order (user_id, item_id, quantity, card_number, cvv, expiration, card_holder_name, street_address, city, state, post_code, phone_number) VALUES (2, $row['item_id'], $row['quantity], $_POST['cardNumber'], $_POST['cvv'], $_POST['expDate'], $_POST['cardName'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phNumber']);";
                     }
                     mysqli_free_result($result);
                 }
@@ -112,7 +119,7 @@
             <h2>Confirmation</h2>
             <h3>Congratulations! Your order has been placed.</h3>
                 <?php
-                    $sql = "SELECT name, i.item_id, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
+                    $sql = "SELECT name, i.item_id, quantity, username, price, i.image, description, (quantity*price) AS 'sum' FROM Cart c, Item i, user u WHERE c.item_id = i.item_id AND c.user_id = 1 AND u.user_id = i.seller";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<div class=\"items\">";

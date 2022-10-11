@@ -47,13 +47,13 @@
             <br>
         </div>
 
-        <form action="Checkout.php" method="get">
-        <input type="text" id="custName" placeholder="Full Name" required>
-        <input type="text" id="address" placeholder="Street Address" required>
-        <input type="text" id="city" placeholder="City" required>
-        <input type="text" id="state" placeholder="State" required>
-        <input type="text" id="ZIP" placeholder="Postal Code" required>
-        <input type="text" id="phNumber" placeholder="Phone number" required>
+        <form action="Checkout.php" method="POST">
+        <input type="text" id="custName" name="fullName" placeholder="Full Name" required>
+        <input type="text" id="address" name="address" placeholder="Street Address" required>
+        <input type="text" id="city" name="city" placeholder="City" required>
+        <input type="text" id="state" name="state" placeholder="State" required>
+        <input type="text" id="ZIP" name="zip" placeholder="Postal Code" required>
+        <input type="text" id="phNumber" name="phNumber" placeholder="Phone number" required>
         <br>
                     <input class="button2" type="submit" value = "Checkout"/>
             </form>

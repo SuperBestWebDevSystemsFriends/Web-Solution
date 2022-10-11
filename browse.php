@@ -85,16 +85,16 @@
         <?php
         require_once "dbconn.php";
 
-        $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
-        if($result = mysqli_query($conn, $sql)){
-            if(mysqli_num_rows($result) == 0){
+        // $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+        // if($result = mysqli_query($conn, $sql)){
+        //     if(mysqli_num_rows($result) == 0){
                 
-            }
-            else{
+        //     }
+        //     else{
                 
-            }
-            mysqli_free_result($result);
-        }
+        //     }
+        //     mysqli_free_result($result);
+        // }
 
 
 

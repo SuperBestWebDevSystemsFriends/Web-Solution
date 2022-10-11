@@ -92,7 +92,7 @@
 
                 if($result = mysqli_query($conn, $sqlCart)) { //check if item exists already in cart
                     $row = mysqli_fetch_assoc($result);
-                    $quantity += $row['quantity'];
+                    if (isset($row['quantity'])) $quantity += $row['quantity'];
                     mysqli_execute($stmt);
                     //add new quantity to existing quantity
                 }// item doesn't exist in cart, therefore use normal SQL statement
