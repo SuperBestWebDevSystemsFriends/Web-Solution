@@ -47,6 +47,18 @@ CREATE TABLE Order_(
     user_id int NOT NULL,
     item_id int NOT NULL,
     quantity int NOT NULL,
+    card_number int NOT NULL,
+    cvv int NOT NULL,
+    expiration varchar(10) NOT NULL,
+    card_holder_name varchar(100) NOT NULL,
+    full_name varchar(100) NOT NULL,
+    street_address varchar(100) NOT NULL,
+    city varchar(100) NOT NULL,
+    state varchar(20) NOT NULL,
+    post_code int NOT NULL,
+    phone_number int NOT NULL,
+
+
     PRIMARY KEY (order_id, user_id, item_id),
     FOREIGN KEY (user_id) REFERENCES User(user_id)
     ON DELETE NO ACTION ON UPDATE CASCADE,
