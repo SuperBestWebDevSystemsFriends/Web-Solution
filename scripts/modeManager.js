@@ -9,8 +9,8 @@ function toggleMode(){
         r.style.setProperty('--clr-light', "#404040");
         r.style.setProperty('--clr-grey', '#666666');
         r.style.setProperty('--clr-dark', 'white');
-        r.style.setProperty('--clr-accent-dark', '#b3d7f5');
-        r.style.setProperty('--clr-accent-light', '#004b87');
+        r.style.setProperty('--clr-accent-dark', accentLight);
+        r.style.setProperty('--clr-accent-light', accentDark);
         localStorage.setItem('state', JSON.stringify(state));
     }
     else if(state.mode=="dark"){
@@ -23,8 +23,8 @@ function toggleMode(){
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#eeeeee');
         r.style.setProperty('--clr-dark', '#000000');
-        r.style.setProperty('--clr-accent-dark', '#004b87');
-        r.style.setProperty('--clr-accent-light', '#b3d7f5');
+        r.style.setProperty('--clr-accent-dark', accentDark);
+        r.style.setProperty('--clr-accent-light', accentLight);
         localStorage.setItem('state', JSON.stringify(state));
     }
 }
@@ -114,8 +114,8 @@ function init(){
         r.style.setProperty('--clr-light', "#ffffff");
         r.style.setProperty('--clr-grey', '#eeeeee');
         r.style.setProperty('--clr-dark', '#000000');
-        r.style.setProperty('--clr-accent-dark', '#004b87');
-        r.style.setProperty('--clr-accent-light', '#b3d7f5');
+        r.style.setProperty('--clr-accent-dark', accentDark);
+        r.style.setProperty('--clr-accent-light', accentLight);
     }
     else if(state.mode=="dark"){
         if(state.oversize){
@@ -126,8 +126,8 @@ function init(){
         r.style.setProperty('--clr-light', "#404040");
         r.style.setProperty('--clr-grey', '#666666');
         r.style.setProperty('--clr-dark', 'white');
-        r.style.setProperty('--clr-accent-dark', '#b3d7f5');
-        r.style.setProperty('--clr-accent-light', '#004b87');
+        r.style.setProperty('--clr-accent-dark', accentLight);
+        r.style.setProperty('--clr-accent-light', accentDark);
     }
     r.style.setProperty('--fs-h1', (state.size+3.7)+"rem");
     r.style.setProperty('--fs-h2', (state.size+1.5)+"rem");
@@ -152,6 +152,9 @@ function init(){
         help.classList.toggle("active");
     }
 }
+
+accentDark="#0e5f1a";
+accentLight="#9ddf9f";
 
 state = {
     mode: "light",

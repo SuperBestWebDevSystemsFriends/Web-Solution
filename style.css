@@ -10,9 +10,9 @@
     --clr-light: #ffffff;
     --clr-grey: #eeeeee;
     --clr-dark: #000000;
-    --clr-accent: #0071ce;
-    --clr-accent-dark: #004b87;
-    --clr-accent-light: #b3d7f5;
+    --clr-accent: #24a510;
+    --clr-accent-dark: #0e5f1a;
+    --clr-accent-light: #9ddf9f;
     --clr-accent2: #57c93b;
 
     --fs-h1: 3.7rem;
@@ -159,13 +159,6 @@ input[type="submit"]:hover{
     border-color: var(--clr-accent-light);
     color: var(--clr-dark);
     cursor: pointer;
-}
-
-body.dark {
-    --clr-light: #2e2e2e;
-    --clr-dark: #ffffff;
-    --clr-accent: #0071ce;
-    --clr-grey: #666666;
 }
 
 body {
