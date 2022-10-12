@@ -76,7 +76,8 @@
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<p class=\"summaryItems\">" . $row["quantity"] . "x " . $row["name"] . " $" . $row["sum"] . "</p>";
 
-                        $sqlPO = "INSERT INTO Order (user_id, item_id, quantity, card_number, cvv, expiration, card_holder_name, street_address, city, state, post_code, phone_number) VALUES (2, $row['item_id'], $row['quantity], $_POST['cardNumber'], $_POST['cvv'], $_POST['expDate'], $_POST['cardName'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['phNumber']);";
+                        $sqlPO = "INSERT INTO Order (user_id, item_id, quantity, card_number, cvv, expiration, card_holder_name, street_address, city, state, post_code, phone_number) 
+                            VALUES (2," . $row["item_id"] . "," . $row["quantity"] . "," . $_POST["cardNumber"] . "," . $_POST["cvv"] . "," . $_POST["expDate"] . "," . $_POST["cardName"] . "," . $_POST["address"] . "," . $_POST["city"] . "," . $_POST["state"] "," . $_POST["zip"] . "," . $_POST["phNumber"] . ");";
                     }
                     mysqli_free_result($result);
                 }
