@@ -48,7 +48,7 @@
         </div>
 
         <form action="Checkout.php" method="POST">
-        <input type="text" id="custName" name="fullName" placeholder="Full Name" required>
+        <input type="text" id="custName" name="fullName" placeholder="Full Name" pattern="\w+\s\w+" required>
         <input type="text" id="address" name="address" placeholder="Street Address" required>
         <input type="text" id="city" name="city" placeholder="City" required>
         <input type="text" id="state" name="state" placeholder="State" required>

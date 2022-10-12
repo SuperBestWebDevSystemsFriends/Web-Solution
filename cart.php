@@ -52,7 +52,7 @@
                 <?php
                     require_once "dbconn.php";
                     
-                    $sql = "SELECT name, i.item_id, quantity, username, price, i.image, description, (quantity*price) AS 'sum' FROM Cart c, Item i, user u WHERE c.item_id = i.item_id AND c.user_id = 1 AND u.user_id = i.seller";
+                    $sql = "SELECT name, i.item_id, quantity, username, price, i.image, description, (quantity*price) AS 'sum' FROM Cart c, Item i, user u WHERE c.item_id = i.item_id AND c.user_id = 2 AND u.user_id = i.seller";
                     if($result = mysqli_query($conn, $sql)){
                         while($row = mysqli_fetch_assoc($result)){
                             echo "<div class=\"items\">";
@@ -86,7 +86,7 @@
                 ?>
         </div>
         <?php 
-            $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+            $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 2 GROUP BY user_id";
             if($result = mysqli_query($conn, $sql)){
                 if(mysqli_num_rows($result) == 0){
                     echo "<p> Your cart is empty. </p>";

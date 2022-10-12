@@ -55,15 +55,15 @@
                 <input type="text" id="expDate" name="expDate" placeholder="Expiration Date (MM/YY)" patttern="^(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)$" required>
                 </span>
                 <br>
-                <input type="text" id="cardName" name="cardName" placeholder="Cardholder Name" required>
+                <input type="text" id="cardName" name="cardName" placeholder="Cardholder Name" pattern="\w+\s\w+" required>
                 <br>
                 <div class="Summary">
             <h4>ORDER SUMMARY</h4>
 
             <?php
                 require_once "dbconn.php";
-                $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1";
-                $sqlTotal = "SELECT SUM(price*quantity) AS 'Total', item_id FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                $sql = "SELECT name, quantity, price, image, description, (quantity*price) AS 'sum' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 2";
+                $sqlTotal = "SELECT SUM(price*quantity) AS 'Total', item_id FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 2 GROUP BY user_id";
 
                 // Hidden shipping details
                 echo "
@@ -100,7 +100,7 @@
         </div>
                 <?php 
 
-                $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 1 GROUP BY user_id";
+                $sql = "SELECT SUM(price*quantity) AS 'Total' FROM Cart c, Item i WHERE c.item_id = i.item_id AND c.user_id = 2 GROUP BY user_id";
                 if($result = mysqli_query($conn, $sql)){
                     if(mysqli_num_rows($result) == 0){
                         echo "<p> Your cart is empty. </p>";

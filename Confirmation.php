@@ -99,7 +99,7 @@
                 <?php
                     require_once "dbconn.php";
 
-                    $sql = "SELECT name, i.item_id, quantity, username, price, i.image, description, (quantity*price) AS 'sum' FROM Cart c, Item i, user u WHERE c.item_id = i.item_id AND c.user_id = 1 AND u.user_id = i.seller";
+                    $sql = "SELECT name, i.item_id, quantity, username, price, i.image, description, (quantity*price) AS 'sum' FROM Cart c, Item i, user u WHERE c.item_id = i.item_id AND c.user_id = 2 AND u.user_id = i.seller";
 
                     $fullName = explode(' ', $_POST['fullName']);
                     $firstName = $fullName[0];
@@ -133,7 +133,7 @@
                         }
                         mysqli_free_result($result);
                     }
-                    $sqlDelete ="DELETE FROM Cart WHERE user_id = 1";
+                    $sqlDelete ="DELETE FROM Cart WHERE user_id = 2";
                     mysqli_query($conn, $sqlDelete);
                     mysqli_close($conn);
                 ?>
