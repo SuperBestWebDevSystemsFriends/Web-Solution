@@ -52,8 +52,8 @@
         <input type="text" id="address" name="address" placeholder="Street Address" required>
         <input type="text" id="city" name="city" placeholder="City" required>
         <input type="text" id="state" name="state" placeholder="State" required>
-        <input type="text" id="ZIP" name="zip" placeholder="Postal Code" required>
-        <input type="text" id="phNumber" name="phNumber" placeholder="Phone number" required>
+        <input type="text" id="ZIP" name="zip" placeholder="Postal Code" pattern="\d{4}(?!\d)" required>
+        <input type="text" id="phNumber" name="phNumber" placeholder="Phone number" pattern="^[0-9]*$" required>
         <br>
                     <input class="button2" type="submit" value = "Checkout"/>
             </form>

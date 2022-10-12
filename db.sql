@@ -70,7 +70,7 @@ CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON SBWDSF.Item TO dbadmin@localhost;
 GRANT all privileges ON SBWDSF.User TO dbadmin@localhost;
 GRANT all privileges ON SBWDSF.Cart TO dbadmin@localhost;
-GRANT all privileges ON SBWDSF.Order TO dbadmin@localhost;
+GRANT all privileges ON SBWDSF.PurchaseOrder TO dbadmin@localhost;
 
 INSERT INTO User(user_id, username, password, fname, lname, email, phone, image) VALUES(
     1,
