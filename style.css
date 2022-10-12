@@ -641,3 +641,11 @@ span>p{
 #expDate{
     width:30%;
 }
+
+.removeButtonHide{
+    display: none;
+}
+
+.checkoutButton, .checkoutForm{
+    display: inline-block !important;
+}

@@ -67,8 +67,11 @@
                             echo "<label for=\"user_id\"></label>";
                             echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $row["item_id"] . "\">";
                             echo "<p class='user'>" . $row["username"] . "</p></a>";
-                            echo "<a class='button button2' href='Product.php?id=". $row["item_id"]."'>View Item</a></div>";
-                            echo "<form action=\"cart.php\" method=\"POST\"> <input type=\"submit\" id = \"removeCart\" name=\"item\" value=\"". $row["item_id"] ."\"></form>";
+                            echo "<a class='button button2 checkoutButton' href='Product.php?id=". $row["item_id"]."'>View Item</a>";
+                            echo "<form class='checkoutForm' action=\"cart.php\" method=\"POST\"> 
+                                        <label class='button2 checkoutButton' for='removeCart".$row["item_id"]."'> Remove From Cart </label>
+                                        <input type=\"submit\" class='removeButtonHide' id = \"removeCart".$row["item_id"]."\" name=\"item\" value=\"". $row["item_id"] ."\">
+                                </form></div>";
                             if ($_POST){
                                 $sqlDelete = "DELETE FROM cart WHERE user_id = 1 AND item_id =" . $_POST['item'] . ";";
                                 $stmt = mysqli_prepare($conn, $sqlDelete);
