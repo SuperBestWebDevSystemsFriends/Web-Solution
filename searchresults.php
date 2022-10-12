@@ -26,18 +26,17 @@
 
         <div class="content">
             <h1>Search Results</h1>
-            <h2>The place for Old Dogs to buy outdoor shit</h2>
-
-            <form action="searchresults.php" method="POST">
-                <input type="text" name="search" placeholder="Search.."/>
-                <button type="submit" class="button2 searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
 
             <?php 
             require_once "dbconn.php";
 
 
             $search = $_POST['search'];
+
+            echo "            <form action='searchresults.php' method='POST'>
+            <input type='text' name='search' placeholder='Search..' value=". $search .">
+            <button type='submit' class='button2 searchButton'><i class='fa-solid fa-magnifying-glass'></i></button>
+                </form>";
 
             $min_length = 1;
 
@@ -48,23 +47,26 @@
                 $search = mysqli_real_escape_string($conn, $search);
                 $results = mysqli_query($conn, $sql) or die(mysqli_error());
                 if(mysqli_num_rows($results) > 0) {
-                    
-                    echo mysqli_num_rows($results) . " Results Returned";
-
+                    if(mysqli_num_rows($results) == 1)
+                        echo "<p>" . mysqli_num_rows($results) . " Result for search term \"". $search ."\".</p>";
+                    else
+                        echo "<p>" . mysqli_num_rows($results) . " Results for search term \"". $search ."\".</p>";
                     while($refined_result = mysqli_fetch_array($results)) {
                         echo "<div class=\"items\">";
-                                echo "<a class=\"productLink\" href=\"Product.php?id=". $refined_result["item_id"]."\"><img src=\"data:image/jpeg;base64,".$refined_result["image"]."\"/>";
-                                echo "<p>" . $refined_result["name"] . "</p>";
-                                echo "<p> $" . $refined_result["price"] . "</p>";
-                                echo "<p>" . $refined_result["description"] . "</p>";
+                                echo "<div class=\"items\">";
+                                echo "<div class='itemImage'><a class=\"productLink\" href=\"Product.php?id=". $refined_result["item_id"]."\"><img src=\"data:image/jpeg;base64,".$refined_result["image"]."\"/></a></div>";
+                                echo "<div class='itemInfo'><a class=\"productLink\" href=\"Product.php?id=". $refined_result["item_id"]."\"><h2 class='name'>" . $refined_result["name"] . "</h2>";
+                                echo "<h3 class='price'> $" . $refined_result["price"] . "</h3>";
+                                echo "<p class='desc'>" . $refined_result["description"] . "</p>";
                                 echo "<label for=\"user_id\"></label>";
                                 echo "<input type=\"hidden\" id=\"userId\" name=\"userId\" value = \"" . $refined_result["item_id"] . "\">";
-                                echo "<p>" . $refined_result["username"] . "</p></a>";
-                                echo "</div>";
+                                echo "<p class='user'>" . $refined_result["username"] . "</p></a>";
+                                echo "<a class='button button2' href='Product.php?id=". $refined_result["item_id"]."'>View Item</a></div>";
+                                echo "</div><br>";
                     }
                 }
                 else {
-                    echo "No results";
+                    echo "No results for search term \"". $search . "\".";
                 }
             }
             else {
