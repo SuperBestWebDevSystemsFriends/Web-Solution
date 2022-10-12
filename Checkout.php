@@ -48,7 +48,7 @@
             <br>
             
             <div class="payment" id="payment">
-                <form action='' method = "POST">
+                <form action='' method = "POST" name="cardForm" id="cardForm">
                 <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" required>
                 <br>
                 <span>
