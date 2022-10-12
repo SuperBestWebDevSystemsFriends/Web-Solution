@@ -50,6 +50,7 @@
                 echo "ERROR: Something Went Wrong";
                 mysqli_error($conn);
             }
+            mysqli_close($conn);
         
             ?>
         </div>
