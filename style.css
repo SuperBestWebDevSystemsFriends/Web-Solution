@@ -416,10 +416,10 @@ img {
 .progressContainer{
     display: inline-block;
 }
-
+/* 
 .confirmation{
     display: none;
-}
+} */
 
 .radio[type="Radio"] {
     display: none;
@@ -641,4 +641,8 @@ span>p{
 
 .checkoutButton, .checkoutForm{
     display: inline-block !important;
+}
+
+.hiddenShipping{
+    display: none;
 }

@@ -39,7 +39,7 @@
                 $components = parse_url($uri);
                 parse_str($components["query"], $params);
                 $id = $params["id"];
-                $sql = "SELECT i.image AS itemImage, name, price, description, u.image AS userImage, user_id, username, email, phone FROM Item i, User u WHERE item_id = $id AND i.seller = u.user_id";
+                $sql = "SELECT i.image AS itemImage, name, seller, price, description, u.image AS userImage, user_id, username, email, phone FROM Item i, User u WHERE item_id = $id AND i.seller = u.user_id";
 
                 if($result = mysqli_query($conn, $sql)){
                     if(mysqli_num_rows($result) > 0) {
@@ -59,7 +59,13 @@
                         echo "<p class='desc'>" . $row["description"] . "</p>";
                         echo "</div>";
                         echo "</div><br>";
-                        echo "<form action=\"\" method=\"POST\"><span class='quantityContainer'> <p>Quantity  <input class='quantity' type=\"number\" name=\"quantity\" min=\"1\" step=\"1\" value='1' required></p> <input type=\"submit\" value=\"Add to Cart\"></span> </form>";
+                        if($row['seller'] != 2)
+                            echo "<form action=\"\" method=\"POST\">
+                                    <span class='quantityContainer'> 
+                                    <p>Quantity  <input class='quantity' type=\"number\" name=\"quantity\" min=\"1\" step=\"1\" value='1' required>
+                                    </p> <input type=\"submit\" value=\"Add to Cart\">
+                                    </span> 
+                                </form>";
                         
                     }
                     else{

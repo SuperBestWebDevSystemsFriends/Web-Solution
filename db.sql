@@ -44,7 +44,7 @@ CREATE TABLE Cart(
     ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
-CREATE TABLE Order_(
+CREATE TABLE PurchaseOrder(
     order_id int NOT NULL AUTO_INCREMENT,
     user_id int NOT NULL,
     item_id int NOT NULL,

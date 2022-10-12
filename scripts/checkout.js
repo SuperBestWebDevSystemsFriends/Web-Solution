@@ -4,7 +4,7 @@ function init(){
 
 function hidePayment(){
     // document.getElementsByClassName("payment").forEach(hide(e));
-    document.forms["cardForm"].submit();
+    document.getElementById("cardForm").submit();
     document.getElementById("payment").style.display = "none";
     showConfirmation();
 }
@@ -22,7 +22,8 @@ function showConfirmation(){
     document.getElementById("confirmation").style.display = "inline";
     document.getElementById("progressBar3").className = "progressBar complete";
     document.getElementById("progressBar4").className = "progressBar complete";
-    updateForm();
 }
+
+
 
 init();
