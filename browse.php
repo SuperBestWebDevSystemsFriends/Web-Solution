@@ -31,7 +31,7 @@
                 <?php 
                     require_once "dbconn.php";
 
-                    $sql = "SELECT i.image, item_id, name, price, description, username FROM Item i, user u WHERE i.seller = u.user_id;";
+                    $sql = "SELECT i.image, item_id, name, price, description, username FROM Item i, user u WHERE i.seller = u.user_id ORDER BY item_id ASC;";
 
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0) {

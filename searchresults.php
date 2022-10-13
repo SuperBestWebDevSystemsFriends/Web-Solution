@@ -52,7 +52,6 @@
                     else
                         echo "<p>" . mysqli_num_rows($results) . " Results for search term \"". $search ."\".</p>";
                     while($refined_result = mysqli_fetch_array($results)) {
-                        echo "<div class=\"items\">";
                                 echo "<div class=\"items\">";
                                 echo "<div class='itemImage'><a class=\"productLink\" href=\"Product.php?id=". $refined_result["item_id"]."\"><img src=\"data:image/jpeg;base64,".$refined_result["image"]."\"/></a></div>";
                                 echo "<div class='itemInfo'><a class=\"productLink\" href=\"Product.php?id=". $refined_result["item_id"]."\"><h2 class='name'>" . $refined_result["name"] . "</h2>";
