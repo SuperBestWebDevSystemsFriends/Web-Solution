@@ -123,11 +123,11 @@ INSERT INTO Item(item_id, name, price, seller, description, image) VALUES(
 );
 
 INSERT INTO Cart(user_id, item_id, quantity) VALUES(
-	1,
+	2,
 	1,
 	3
 ),(
-	1,
+	2,
 	2,
 	15
 );
