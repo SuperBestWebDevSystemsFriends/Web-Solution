@@ -73,7 +73,7 @@
                                         <input type=\"submit\" class='removeButtonHide' id = \"removeCart".$row["item_id"]."\" name=\"item\" value=\"". $row["item_id"] ."\">
                                 </form></div>";
                             if ($_POST){
-                                $sqlDelete = "DELETE FROM cart WHERE user_id = 1 AND item_id =" . $_POST['item'] . ";";
+                                $sqlDelete = "DELETE FROM cart WHERE user_id = 2 AND item_id =" . $_POST['item'] . ";";
                                 $stmt = mysqli_prepare($conn, $sqlDelete);
                                 mysqli_execute($stmt);
                                 echo "<meta http-equiv='refresh' content='0'>";
