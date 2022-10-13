@@ -13,5 +13,3 @@ if (!$conn) {
     echo "Debugging error: " . mysqli_connect_error() . "<br>";
     exit;
 }
-
-?>
