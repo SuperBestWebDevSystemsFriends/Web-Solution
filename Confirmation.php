@@ -124,12 +124,9 @@
                             echo "</div><br>";
 
                             // Add to PO
-
                             $sqlPO = "INSERT INTO PurchaseOrder (user_id, item_id, quantity, card_number, cvv, expiration, card_holder_name, street_address, city, state, post_code, phone_number) 
-                                VALUES (2," . $row["item_id"] . "," . $row["quantity"] . "," . $_POST["cardNumber"] . "," . $_POST["cvv"] . "," . $_POST["expDate"] . ",'" . $_POST['cardName'] . "','" . $_POST["address"] . "','" . $_POST["city"] . "','" . $_POST["state"] . "'," . $_POST["zip"] . "," . $_POST["phNumber"] . ");";
-                            $stmt = mysqli_prepare($conn, $sqlPO);
-                            echo mysqli_error($conn);
-                            $stmt = mysqli_execute($stmt);
+                                VALUES (2," . $row["item_id"] . "," . $row["quantity"] . "," . $_POST["cardNumber"] . "," . $_POST["cvv"] . ",'" . $_POST["expDate"] . "','" . $_POST['cardName'] . "','" . $_POST["address"] . "','" . $_POST["city"] . "','" . $_POST["state"] . "'," . $_POST["zip"] . "," . $_POST["phNumber"] . ");";
+                            mysqli_query($conn, $sqlPO);
                         }
                         mysqli_free_result($result);
                     }
