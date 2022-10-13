@@ -90,7 +90,6 @@
                     }
                     else{
                         $sumTotal = mysqli_fetch_assoc($resultTotal)["Total"] + 15.99;
-                        echo "<p class=\"summaryTotal\" id=\"shipping\"> Shipping $15.99</p>";
                         echo "<p class=\"summaryTotal\" id=\"Total\"> Total $". $sumTotal ."</p>";
                     }
                     mysqli_free_result($resultTotal);
@@ -107,6 +106,7 @@
                     }
                     else{
                         $sumTotal = mysqli_fetch_assoc($result)['Total'] + 15.99;
+                        echo "<p class=\"summaryTotal\" id=\"shipping\"> Shipping $15.99</p>";
                         echo "<input type=\"submit\" class = \"button2\" id=\"placeOrder\" value=\"Place Order for $". $sumTotal ."\"></form>";
                     }
                     mysqli_free_result($result);
