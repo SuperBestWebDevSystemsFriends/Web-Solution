@@ -50,7 +50,7 @@ CREATE TABLE PurchaseOrder(
     item_id int NOT NULL,
     quantity int NOT NULL,
     card_number VARBINARY(100) NOT NULL,
-    cvv int NOT NULL,
+    cvv VARBINARY(100) NOT NULL,
     expiration varchar(10) NOT NULL,
     card_holder_name varchar(100) NOT NULL,
     street_address varchar(100) NOT NULL,
