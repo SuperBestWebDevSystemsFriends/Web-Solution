@@ -57,7 +57,7 @@ CREATE TABLE PurchaseOrder(
     city varchar(100) NOT NULL,
     state varchar(20) NOT NULL,
     post_code int NOT NULL,
-    phone_number int NOT NULL,
+    phone_number bigint NOT NULL,
 
     PRIMARY KEY (order_id, user_id, item_id),
     FOREIGN KEY (user_id) REFERENCES User(user_id)
